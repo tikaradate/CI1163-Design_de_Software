@@ -6,7 +6,7 @@ AFP -> Sistema : fornece nome do funcionário e tipo e data do relatório()
 alt Informações Encontradas
 
     AFP <-- Sistema : devolve uma Folha de Pagamento com o relatório solicitado()
-    group Salvar
+    alt Salvar
 
         AFP -> Sistema : pede para salvar o relatório()
         AFP <-- Sistema : solicita o nome e o local para o salvamento
@@ -14,6 +14,12 @@ alt Informações Encontradas
         AFP <-- Sistema : pede confirmação
         AFP -> Sistema : confirma ação()
         AFP <-- Sistema : salva o relatório com o nome e local especificado e termina a execução
+
+    else Não Salvar
+
+        AFP -> Sistema : não solicita o salvamento()
+        AFP <-- Sistema : descarta o relatório e termina a execução
+
     end
 
 else Informações Indisponíveis
