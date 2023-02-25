@@ -1,4 +1,7 @@
 @startuml Caso3
+
+actor Funcionario as Funcionario
+
 Funcionario ->  Sistema : gerarRelatorioFuncionario()
 Funcionario <-- Sistema : solicita informações funcionário
 Funcionario ->  Sistema : enviaInformacoes(tipoRelatorio, dataInicio, dataFim)
