@@ -1,0 +1,24 @@
+@startuml caso8
+
+actor Funcionario as Funcionario
+
+Funcionario -> Sistema : selecionarPagamento()
+alt Não achou usuário
+    Funcionario <-- Sistema : informa o erro
+    Sistema -> Sistema : termina caso
+end
+
+Funcionario <-- Sistema : solicita o método
+Funcionario -> Sistema : escolherMetodo(metodo)
+alt metodo == correio
+    Funcionario <-- Sistema : solicita o endereço
+    Funcionario -> Sistema : enviarEndereco(endereco)
+else metodo == deposito
+    Funcionario <-- Sistema : solicita informações do banco
+    Funcionario -> Sistema : enviarInformacoesBanco(nome, numero)
+end
+
+Sistema -> Sistema : atualiza informações do usuário
+
+
+@enduml
