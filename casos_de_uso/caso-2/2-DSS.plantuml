@@ -1,39 +1,43 @@
 @startuml
-AFP -> Sistema : solicita criação de relatório()
+Actor AdmFP as AFP
+
+AFP -> Sistema : solicitaRelatorioAdm()
 AFP <-- Sistema : pede especificações do relatório
-AFP -> Sistema : fornece nome do funcionário e tipo e data do relatório()
+AFP -> Sistema : criaRelatorioAdm(tipoRelat, dataIni, dataFim, nomesFunc)
 
 alt Informações Encontradas
 
+    Sistema <-- Sistema : cria o relatório solicitado
     AFP <-- Sistema : devolve uma Folha de Pagamento com o relatório solicitado
     alt Salvar
 
-        AFP -> Sistema : pede para salvar o relatório()
+        AFP -> Sistema : solicitaSalvamentoRelatorio(relat)
         AFP <-- Sistema : solicita o nome e o local para o salvamento
-        AFP -> Sistema : informa os detalhes solicitados()
+        AFP -> Sistema : salvaRelatorio(relat, nome, local)
         AFP <-- Sistema : pede confirmação
-        AFP -> Sistema : confirma ação()
+        AFP -> Sistema : confirmaAcao()
         AFP <-- Sistema : salva o relatório com o nome e local especificado e termina a execução
 
     else Não Salvar
 
-        AFP -> Sistema : não solicita o salvamento()
-        AFP <-- Sistema : descarta o relatório e termina a execução
+        AFP -> Sistema : descartaRelatorio(relat)
+        AFP <-- Sistema : notifica o descarte
+        Sistema <-- Sistema : descarta o relatório e termina a execução
 
     end
 
 else Informações Indisponíveis
 
-    AFP <-- Sistema : mensagem de erro informando a indisponibilidade das informações()
+    AFP <-- Sistema : mensagem de erro informando a indisponibilidade das informações
     alt Inicio
 
-        AFP -> Sistema : solicita o retorno para a tela inicial()
+        AFP -> Sistema : retornaTelaIni()
         AFP <-- Sistema : volta para a tela de início
 
     else Cancelar
 
-        AFP -> Sistema : cancela a operação()
-        AFP <-- Sistema : termina a execução
+        AFP -> Sistema : cancelaOp()
+        Sistema <-- Sistema : termina a execução
 
     end
 
@@ -42,13 +46,13 @@ else Informações Insuficientes ou Formato Inválido
     AFP <-- Sistema : mensagem de erro informando a falta de informações dadas pelo usuário, solicitando-as()
     alt Preenche
 
-        AFP -> Sistema : informa as informações faltantes()
+        AFP -> Sistema : completaInfoRelat()
         AFP <-- Sistema : continua a execução como se as informações tivessem sido dadas corretamente no início
 
     else Cancelar
 
-        AFP -> Sistema : cancela a operação()
-        AFP <-- Sistema : termina a execução
+        AFP -> Sistema : cancelaOp()
+        Sistema <-- Sistema : termina a execução
 
     end
 
