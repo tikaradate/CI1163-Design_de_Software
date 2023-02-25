@@ -1,0 +1,73 @@
+@startuml
+Funcionario -> Sistema : solicitaInsercaoHoras()
+Sistema <- Sistema : procura o ponto do funcionário
+
+alt Encontrou
+    Funcionario <-- Sistema : retorna o ponto atual
+else Não Encontrou
+    Sistema <- Sistema : cria o ponto atual
+    Funcionario <-- Sistema : retorna o ponto atual
+end
+
+Sistema <- Sistema : recupera a lista de número de cobrança disponíveis
+
+alt Serviço Disponível
+
+    Funcionario <-- Sistema : exibe a lista recuperada
+    Funcionario -> Sistema : insereHoras()
+
+    alt Quantidade Válida
+
+        Sistema <- Sistema : salva alterações no cartão de ponto
+
+    else Quantidade Inválida
+
+        Funcionario <-- Sistema : exibe erro de quantidade de horas inválida
+        Funcionario <-- Sistema : retorna para a tela de preenchimento de horas
+
+        alt Re-preenche
+
+            Funcionario -> Sistema : insereHoras()
+
+        else Cancela
+
+            Funcionario -> Sistema : cancelaOp()
+            Sistema <- Sistema : termina a execução
+
+        end
+
+    else Cartão enviado
+
+        Funcionario <-- Sistema : exibe o cartão que já foi enviado
+        Funcionario <-- Sistema : exibe erro explicando que o cartão já foi enviado e não pode mais ser alterado
+        Funcionario -> Sistema : apertaOk()
+        Sistema <- Sistema : termina a execução
+
+    end
+
+else Serviço Indisponível
+
+    Funcionario <-- Sistema : exibe erro informando que a lista de números de cobrança não está disponível
+    
+    alt Continuar Sem Números Novos
+
+        Funcionario -> Sistema : insereHoras()
+
+    else Cancelar
+
+        Funcionario -> Sistema : cancelaOp()
+        Sistema <- Sistema : termina a execução
+
+    end
+end
+|||
+|||
+Funcionario -> Sistema : solicitaEnvioPonto()
+Sistema <- Sistema : altera a data de envio do cartão de ponto para a atual e o status para "enviado"
+Sistema <- Sistema : valida o cartão de ponto
+Sistema <- Sistema : armazena as horas trabalhadas em cada número de cobrança
+Sistema <- Sistema : salva o cartão
+Sistema <- Sistema : torna o cartão um "somente leitura", não permitindo alterações nele de agora em diante
+Sistema <- Sistema : termina a execução
+
+@enduml
