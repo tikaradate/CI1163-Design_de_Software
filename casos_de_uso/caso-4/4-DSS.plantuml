@@ -17,5 +17,7 @@ alt Usuário ou senha inválido
 end 
 
 Sistema -> Sistema : registra usuário
+Usuário <-- Sistema : informa usuário
+
 
 @enduml
