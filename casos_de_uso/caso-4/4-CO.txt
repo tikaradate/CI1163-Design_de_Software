@@ -1,0 +1,51 @@
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    iniciarLogin()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Entrar
+
+Pré-Condições:
+    O usuário deseja fazer login no sistema
+
+Pós-Condições:
+    O sistema mostra a tela de login
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    inserirInformacoes(nome, senha)
+
+Parâmetros:
+    nome        : nome do login do usuario
+    senha       : senha do login do usuario
+
+Referências Cruzadas:
+    Caso de Uso: Entrar
+
+Pré-Condições:
+    O usuário deseja fazer login no sistema
+
+Pós-Condições:
+    O usuário consegue fazer login
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    cancelarLogin()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Entrar
+
+Pré-Condições:
+    O usuário desistiu de fazer login no sistema
+
+Pós-Condições:
+    A execução é encerrada

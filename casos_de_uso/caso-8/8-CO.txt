@@ -1,0 +1,15 @@
+Operação:
+    executarFolhaPagamento()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar relatório de funcionário
+
+Pré-Condições:
+    deve ser um dia de pagamento válido
+
+Pós-Condições:
+    as ordens de pagamento dos funcionarios são executadas
+    funcionarios marcados como excluidos são removidos do sistema
