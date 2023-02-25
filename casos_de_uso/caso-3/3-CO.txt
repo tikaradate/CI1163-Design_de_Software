@@ -1,0 +1,116 @@
+Operação:
+    gerarRelatorioFuncionario()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar relatório de funcionário
+
+Pré-Condições:
+    O Funcionário deve estar conectado ao sistema antes do início deste caso de uso
+
+Pós-Condições:
+    O estado do sistema é inalterado por este caso de uso.
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    enviaInformacoes(tipoRelatorio, dataInico, dataFim)
+
+Parâmetros:
+   tipoRelatorio: tipo de relatorio que sera gerado
+   dataInico    : data de inicio do relatorio
+   dataFim      : data de fim do relatorio
+
+Referências Cruzadas:
+    Caso de Uso: Criar relatório de funcionário
+
+Pré-Condições:
+    o funcionario deve ter informado que quer gerar um relatorio
+
+Pós-Condições:
+    o sistema pesquisa as informaçoes fornecidas no banco de dados
+
+-------------------------------------------------------------------------------------------------------------
+Operação:
+    voltarParaInicio()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar relatório de funcionário
+
+Pré-Condições:
+    as informaçoes solicitadas devem estar indisponiveis
+
+Pós-Condições:
+   o funcionario volta para o começo do caso de uso
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    cancelarOperacao()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar relatório de funcionário
+
+Pré-Condições:
+    o sistema deve ter informado que as informações estão indisponiveis ou invalidas
+
+Pós-Condições:
+    a operacao é cancelada
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    forneceNumeroCobrança(numeroCobranca)
+
+Parâmetros:
+    numeroCobranca : numero da cobranca do relatorio
+
+Referências Cruzadas:
+    Caso de Uso: Criar relatório de funcionário
+
+Pré-Condições:
+    o sistema deve ter devolvido os numeros de cobranças disponiveis
+
+Pós-Condições:
+    o sistema gera o relatorio
+
+-------------------------------------------------------------------------------------------------------------
+Operação:
+    salvarRelatorio(numeroCobranca)
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar relatório de funcionário
+
+Pré-Condições:
+    o sistema deve ter devolvido corretamente os dados do relatorio
+
+Pós-Condições:
+    o sistema pede para o funcionario confimar o salvamento do relatorio
+
+-------------------------------------------------------------------------------------------------------------
+Operação:
+    confirmaSalvar()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar relatório de funcionário
+
+Pré-Condições:
+    o funcionario deve ter solicitado para salvar o relatorio
+
+Pós-Condições:
+    o relatorio é salvo
+
+-------------------------------------------------------------------------------------------------------------

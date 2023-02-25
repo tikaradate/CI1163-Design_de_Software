@@ -2,29 +2,62 @@
 actor RelogioSistema as RelogioSistema
 
 RelogioSistema  -> Sistema : executarFolhaPagamento()
+activate RelogioSistema
+
+
 Sistema   --> Sistema : recupera funcionarios a serem pagos
+activate Sistema
+deactivate Sistema
 
 loop todos os funcionarios foram pagos
     Sistema   --> Sistema : recupera folhas ponto
+    activate Sistema
+    deactivate Sistema
     Sistema   --> Sistema : recupera ordens de compra
+    activate Sistema
+    deactivate Sistema
     Sistema   --> Sistema : recupera informações do usuario
-    Sistema   --> Sistema : realiza deduçoes legais
+    activate Sistema
+    deactivate Sistema
+    Sistema   --> Sistema : realiza deduçoes legaisactivate Sistema
+    activate Sistema
+    deactivate Sistema
     
     alt pagamento é feito via correio
         Sistema   --> Sistema : cria transacao bancaria
+        activate Sistema
+        deactivate Sistema
         Sistema   --> Correios     : envia ordem de pagamento
+        activate Sistema
+        activate Correios
+        deactivate Correios
+        deactivate Sistema
     else pagamentos é feito via deposito bancário
         Sistema   --> Sistema : cria transacao bancaria
+        activate Sistema
+        deactivate Sistema
         Sistema   --> SistemaBanco : envia ordem de pagamento
+        activate Sistema
+        activate SistemaBanco
+        deactivate SistemaBanco
+        deactivate Sistema
         alt sistema bancario indisponivel
             loop sistema bancario indisponivel
                 Sistema   --> Sistema      : aguarda determinado periodo
+                activate Sistema
+                deactivate Sistema
                 Sistema   --> SistemaBanco : tenta enviar a ordem de pagamento novamente
+                activate Sistema
+                activate SistemaBanco
+                deactivate SistemaBanco
+                deactivate Sistema
             end
     end
 
     opt id do funcionario foi marcado como excluido
         Sistema   --> Sistema : excluir funcionario
+        activate Sistema
+        deactivate Sistema
     end
 end
 
