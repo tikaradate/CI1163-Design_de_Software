@@ -1,0 +1,43 @@
+@startuml Caso3
+Funcionario ->  Sistema : gerarRelatorioFuncionario()
+Funcionario <-- Sistema : solicita informações funcionário
+Funcionario ->  Sistema : enviaInformacoes(tipoRelatorio, dataInicio, dataFim)
+
+alt informacoes indisponiveis
+    Funcionario <-- Sistema : mensagem de erro
+    opt 
+        Funcionario -> Sistema : voltarParaInicio()
+    else 
+        Funcionario -> Sistema : cancelarOperacao() 
+    end
+
+else formato invalido ou informacoes insuficientes
+
+    Funcionario <-- Sistema : solicita informações corretas
+
+    opt
+        Funcionario -> Sistema : enviaInformacoes(tipoRelatorio, dataInicio, dataFim)
+    else 
+        Funcionario -> Sistema : cancelarOperacao() 
+    end
+end 
+
+alt tipoRelatorio == TotalDeHorasTrabalhadasParaUmProjeto
+    Funcionario <-- Sistema : recupera e exibe lista de números de cobrança disponíveis
+    Funcionario <-- Sistema : solicita numero de cobranca
+    Funcionario ->  Sistema : forneceNumeroCobrança(numeroCobranca)
+    Funcionario <-- Sistema : gera relatorio 
+    Funcionario <-- Sistema : pergunta se o usuario quer salvar o relatorio
+
+    alt usuario quer salvar o relatorio
+        Funcionario ->  Sistema : salvarRelatorio()
+        Funcionario <-- Sistema : solicita nome e local do arquivo
+        Funcionario ->  Sistema : forneceInformacoes(nome, local)
+        Funcionario ->  Sistema : confirmaSalvar()
+    else usuario não quer salvar o relatório
+        Sistema     <-- Sistema : descarta relatorio
+        Funcionario <-- Sistema : informa o usuario
+    end
+
+end
+@enduml
