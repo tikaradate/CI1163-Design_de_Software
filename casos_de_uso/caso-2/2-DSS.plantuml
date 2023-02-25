@@ -7,6 +7,7 @@ AFP -> Sistema : criaRelatorioAdm(tipoRelat, dataIni, dataFim, nomesFunc)
 
 alt Informações Encontradas
 
+    Sistema <-- Sistema : cria o relatório solicitado
     AFP <-- Sistema : devolve uma Folha de Pagamento com o relatório solicitado
     alt Salvar
 
