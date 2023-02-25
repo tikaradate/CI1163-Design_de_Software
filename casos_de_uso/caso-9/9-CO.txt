@@ -1,0 +1,66 @@
+Operação:
+    selecionarPagamento()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Selecione o método de pagamento
+
+Pré-Condições:
+    Um funcionário quer selecionar um método de pagamento.
+
+Pós-Condições:
+    O sistema está pronto para pedir informações para a criação do relatório
+
+------------------
+
+Operação:
+    escolherMetodo()
+
+Parâmetros:
+    metodo: método de pagamento escolhido pelo funcionário
+
+Referências Cruzadas:
+    Caso de Uso: Selecione o método de pagamento
+
+Pré-Condições:
+    O funcionário requisitou a alteração de metódo de pagamento
+
+Pós-Condições:
+    O sistema não muda
+
+------------------
+
+Operação:
+    enviarEndereco(endereco)
+
+Parâmetros:
+    endereco: endereço para o qual o cheque será enviado
+
+Referências Cruzadas:
+    Caso de Uso: Selecione o método de pagamento
+
+Pré-Condições:
+    O funcionário solicitou a alteração de método
+
+Pós-Condições:
+    O sistema altera o método e informações de pagamento do usuário
+    
+------------------
+
+Operação:
+    enviarInformacoesBanco(nome, numer)
+
+Parâmetros:
+   nome: nome do banco que será depositado
+   número: número do banco que será depositado
+
+Referências Cruzadas:
+    Caso de Uso: Selecione o método de pagamento
+
+Pré-Condições:
+    O funcionário solicitou a alteração de método
+
+Pós-Condições:
+    O sistema altera o método e informações de pagamento do usuário
