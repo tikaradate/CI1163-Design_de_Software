@@ -8,10 +8,10 @@ Referências Cruzadas:
     Caso de Uso: Criar Relatório Administrativo
 
 Pré-Condições:
-    Um Admistrador da Folha de Pagamento que deseja visualizar, e talvez salvar, um relatório do sistema
+    Um Admistrador da Folha de Pagamento deseja visualizar, e talvez salvar, um relatório do sistema
 
 Pós-Condições:
-    O sistema pede as informações necessárias para a criação do relatório
+    O sistema está pronto para pedir informações para a criação do relatório
 
 -------------------------------------------------------------------------------------------------------------
 
@@ -31,8 +31,7 @@ Pré-Condições:
     O Administrador sabe o(s) nome(s) do(s) funcionário(s) e o tipo e datas usados para a criação do relatório
 
 Pós-Condições:
-    O sistema retorna uma Folha de Pagamento com o relatório solicitado
-    O sistema pergunta se o usuário deseja salvar o relatório
+    O sistema mostra o relatório requerido com a opção de salvamento
 
 -------------------------------------------------------------------------------------------------------------
 
@@ -46,10 +45,10 @@ Referências Cruzadas:
     Caso de Uso: Criar Relatório Administrativo
 
 Pré-Condições:
-    O Administrador deseja salvar o relatório
+    Um Administrador deseja salvar o relatório
 
 Pós-Condições:
-    O sistema pergunta o nome do relatório e o local em que ele deve ser salvo
+    O sistema salvou o relatório caso as informações sejam dadas e o usuário confirme a ação
 
 -------------------------------------------------------------------------------------------------------------
 
@@ -65,7 +64,6 @@ Referências Cruzadas:
     Caso de Uso: Criar Relatório Administrativo
 
 Pré-Condições:
-    O Administrador solicitou o salvamento do relatório
     O Aministrador sabe com qual nome e em qual local o relatório deve ser salvo
 
 Pós-Condições:
@@ -74,7 +72,7 @@ Pós-Condições:
 -------------------------------------------------------------------------------------------------------------
 
 Operação:
-    confirmaAção()
+    confirmaAcao()
 
 Parâmetros:
     Nenhum
@@ -87,4 +85,91 @@ Pré-Condições:
 
 Pós-Condições:
     O sistema realmente realiza a ação caso tenha sido confirmada
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    descartaRelatorio(relat)
+
+Parâmetros:
+    relat       : relatório visualziado anteriormente
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O Administrador não quis salvar o relatório visualizado
+
+Pós-Condições:
+    O sistema não possui o relatório salvo
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    infoIndisp()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    As informações requeridas pelo administrador não estão disponíveis
+
+Pós-Condições:
+    Caso o administrador queira voltar à tela inicial, o sistema mostra a tela inicial
+    Caso contrário, o sistema é encerrado
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    infoInsuf()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    As informações entregues pelo administrador são insuficientes para criar um relatório
+
+Pós-Condições:
+    Caso o administrador preencha as informações, o sistema está pronto para seguir com a criação do relatório
+    Caso contrário, o sistema é encerrado
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    retornaTelaIni()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O usuário deseja voltar à tela inicial do sistema
+
+Pós-Condições:
+    O sistema mostra a tela inicial
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    cancelaOp()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O usuário deseja cancelar a operação que estava realizando
+
+Pós-Condições:
+    O sistema termina sua execução
 
