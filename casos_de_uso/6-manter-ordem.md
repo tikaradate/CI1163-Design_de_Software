@@ -42,8 +42,9 @@ Compra.
 1. O funcionário comissionado insere o ID da ordem de Compra.
 1. O sistema recupera o pedido de compra associado ao ID da ordem de Compra.
 1. O sistema verifica se a ordem de Compra é uma ordem de Compra para o Funcionário Comissionado e se a ordem de Compra está aberta.
-1. O sistema exibe a ordem de Compra. 6. O sistema solicita ao Funcionário Comissionado que confirme a exclusão da ordem de Compra. 
-1. O Funcionário Comissionado
+1. O sistema exibe a ordem de Compra. 
+1. O sistema solicita ao Funcionário Comissionado que confirme a exclusão da ordem de Compra. 
+2. O Funcionário Comissionado
 verifica a exclusão. 
 1. O sistema remove a ordem de Compra do sistema.
 ### Fluxos alternativos

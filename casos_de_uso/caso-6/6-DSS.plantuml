@@ -1,0 +1,80 @@
+@startuml
+
+actor funcionarioComissionado as FC
+
+FC -> Sistema : gerenciarOrdens()
+FC <-- Sistema : solicita operação
+
+alt Criar ordem
+    FC -> Sistema : criarOrdem()
+    FC <-- Sistema : solicita informações da ordem de compra
+    FC -> Sistema : inserirInformacoesOrdem(contatoCliente, endCobranca, produtod, data)
+    Sistema -> Sistema : gera e atribui número da ordem de compra
+    Sistema -> Sistema : adiciona ordem de compra ao FC
+    FC <- Sistema : devolve número da ordem de compra
+else Alterar ordem
+    FC -> Sistema : alterarOrdem()
+    FC <-- Sistema : solicita informações da ordem de compra
+    FC -> Sistema : inserirIDOrdemDeCompra(IDOrdemDeCompra)
+    alt Ordem de compra não encontrado
+        FC <- Sistema : mensagem de erro avisando que a ordem não existe
+        opt
+            FC -> Sistema : inserirIDOrdemDeCompra(IDOrdemDeCompra)
+        else
+            FC -> Sistema : cancelar()
+        end
+    else Acesso inválido à ordem
+        FC <- Sistema : mensagem de erro avisando que o acesso à ordem não é válido
+        opt
+            FC -> Sistema : inserirIDOrdemDeCompra(IDOrdemDeCompra)
+        else
+            FC -> Sistema : cancelar()
+        end
+    else Acesso de ordem fechada
+        FC <- Sistema : mensagem de erro avisando que a ordem está fechada
+        opt
+            FC -> Sistema : inserirIDOrdemDeCompra(IDOrdemDeCompra)
+        else
+            FC -> Sistema : cancelar()
+        end
+    end
+    FC <-- Sistema : exibe a ordem de compra 
+    FC -> Sistema : inserirInformacoesOrdem(contatoCliente, endCobranca, produtod, data)
+    Sistema -> Sistema : atualiza informações da compra
+else Cancelar ordem
+    FC -> Sistema : cancelarOrdem()
+    FC <-- Sistema : solicita informações da ordem de compra
+    FC -> Sistema : inserirIDOrdemDeCompra(IDOrdemDeCompra)
+    alt Ordem de compra não encontrado
+        FC <- Sistema : mensagem de erro avisando que a ordem não existe
+        opt
+            FC -> Sistema : inserirIDOrdemDeCompra(IDOrdemDeCompra)
+        else
+            FC -> Sistema : cancelar()
+        end
+    else Acesso inválido à ordem
+        FC <- Sistema : mensagem de erro avisando que o acesso à ordem não é válido
+        opt
+            FC -> Sistema : inserirIDOrdemDeCompra(IDOrdemDeCompra)
+        else
+            FC -> Sistema : cancelar()
+        end
+    else Acesso de ordem fechada
+        FC <- Sistema : mensagem de erro avisando que a ordem está fechada
+        opt
+            FC -> Sistema : inserirIDOrdemDeCompra(IDOrdemDeCompra)
+        else
+            FC -> Sistema : cancelar()
+        end
+    end
+    FC <-- Sistema : exibe a ordem de compra 
+    FC <-- Sistema : solicita confirmação da exclusão
+    alt Cancelar exlusão
+        FC -> Sistema : cancelar()
+    end
+    FC -> Sistema : confirma exclusão
+    Sistema -> Sistema : remove a ordem do sistema
+end
+
+
+@enduml
