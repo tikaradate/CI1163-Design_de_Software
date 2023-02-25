@@ -1,0 +1,16 @@
+Operação:
+    criaRelatorioAdm()
+
+Parâmetros:
+    ??????????????????
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    Um Admistrador da Folha de Pagamento que deseja visualizar, e talvez salvar, um relatório do sistema
+    O Administrador sabe o nome do funcionário e o tipo e datas usados para a criação do relatório
+
+Pós-Condições:
+    O Administrador visualizou o relatório
+    Caso tenha sido solicitado pelo Administrador, o sistema salvou o relatório
