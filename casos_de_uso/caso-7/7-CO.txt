@@ -1,0 +1,85 @@
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    solicitaInsercaoHoras()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Cartão de Ponto
+
+Pré-Condições:
+    O usuário deseja alterar as informações do seu cartão de ponto
+
+Pós-Condições:
+    O sistema mostra a lista de números de cobrança caso esteja disponível
+    O usuário agora pode atualizar o cartão
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    insereHoras()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Cartão de Ponto
+
+Pré-Condições:
+    O usuário possui as informações que deseja inserir no ponto
+
+Pós-Condições:
+    O cartão de ponto possui as novas informações
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    cancelaOp()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O usuário deseja cancelar a operação que estava realizando
+
+Pós-Condições:
+    O sistema termina sua execução
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    apertaOk()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O sistema mostra uma informação que o usuário precisa confirmar que entendeu
+
+Pós-Condições:
+    O usuário entendeu a situação
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    enviaPonto()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O sistema possui um cartão alterado localmente que deve ser enviado
+
+Pós-Condições:
+    O cartão foi enviado
