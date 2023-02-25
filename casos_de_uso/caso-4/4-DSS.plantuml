@@ -1,0 +1,21 @@
+@startuml
+
+actor Usuário as Usuário
+
+Usuário -> Sistema : iniciarLogin()
+Usuário <-- Sistema : solicita nome e senha
+Usuário -> Sistema : inserirInformacoes(nome, senha)
+Sistema -> Sistema : valida
+
+alt Usuário ou senha inválido
+    Usuário <-- Sistema : manda mensagem de erro
+    opt
+        Usuário -> Sistema : iniciarLogin()
+    else
+        Usuário -> Sistema : cancelarLogin()
+    end
+end 
+
+Sistema -> Sistema : registra usuário
+
+@enduml

@@ -5,7 +5,7 @@ AFP -> Sistema : fornece nome do funcionário e tipo e data do relatório()
 
 alt Informações Encontradas
 
-    AFP <-- Sistema : devolve uma Folha de Pagamento com o relatório solicitado()
+    AFP <-- Sistema : devolve uma Folha de Pagamento com o relatório solicitado
     alt Salvar
 
         AFP -> Sistema : pede para salvar o relatório()
