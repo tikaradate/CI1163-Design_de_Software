@@ -13,15 +13,15 @@ Este caso de uso começa quando o Funcionário deseja criar um “Total de Horas
 3. Assim que o Funcionário fornecer as informações solicitadas, o sistema fornecerá ao Funcionário um relatório que satisfaça os critérios do relatório.
 4. O Funcionário pode então solicitar que o sistema salve o relatório. Nesse momento, o sistema solicita o Funcionário forneça o nome e o local para salvar o relatório.
 5. Assim que o Funcionário fornecer as informações solicitadas e confirmar a decisão de salvar o relatório, o sistema salva o relatório no nome e local especificados.
-6. Se o funcionário não optar por salvar o relatório, o relatório ser ́a descartado.
+6. Se o funcionário não optar por salvar o relatório, o relatório será descartado.
 ### Fluxos alternativos
-#### Informações Solicitadas Indisponíveis
+#### **Informações Solicitadas Indisponíveis**
 Se no Fluxo Básico as informações solicitadas não estiverem disponíveis, o sistema apresentará uma mensagem de erro. 
 
 O Funcionário pode optar por retornar ao início do Fluxo Básico ou cancelar a operação, no em qual ponto o caso de uso termina.
 
-### Formato inválido ou informação insuficiente
-Caso no Fluxo Básico o Funcionário não tenha especificado informações suficientes para a criação do relatório selecionado, o sistema solicitar ́a ao ator as informações que
+#### **Formato inválido ou informação insuficiente**
+Caso no Fluxo Básico o Funcionário não tenha especificado informações suficientes para a criação do relatório selecionado, o sistema solicitará ao ator as informações que
 faltam. 
 
 O Empregado pode entrar o que falta informações ou optar por cancelar a operação, ponto em que o caso de uso termina.

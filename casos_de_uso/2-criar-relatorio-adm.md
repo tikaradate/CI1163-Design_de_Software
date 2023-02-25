@@ -1,6 +1,6 @@
 # Criar Relatório Administrativo
 ## Breve Descrição
-O caso de uso permite que o Administrador da Folha de Pagamento crie um relatório “Total de Horas Trabalhadas” ou “Pagamentos dos  ́ultimos 12 meses” .
+O caso de uso permite que o Administrador da Folha de Pagamento crie um relatório “Total de Horas Trabalhadas” ou “Pagamentos dos últimos 12 meses” .
 ## Fluxos
 ### Fluxo Básico
 O caso de uso começa quando o Administrador da Folha de Pagamento solicita que o sistema crie um relatório.
@@ -10,7 +10,7 @@ O caso de uso começa quando o Administrador da Folha de Pagamento solicita que 
   - Nome(s) do(s) funcionário(s)
 
 1. Assim que o Administrador da Folha de Pagamento fornecer as informações solicitadas, o sistema fornecerá a Folha de Pagamento Administrador com um relatório que satisfaça os critérios do relatório.
-2. O Administrador da Folha de Pagamento pode ent ̃ao solicitar que o sistema salve o
+2. O Administrador da Folha de Pagamento pode então solicitar que o sistema salve o
 relatório. Nesse momento, o sistema solicita o administrador da folha de pagamento para
 fornecer o nome e o local para salvar o relatório.
 1. Assim que o Administrador da Folha de Pagamento fornecer as informações solicitadas
@@ -21,12 +21,12 @@ especificados.
 
 
 ### Fluxos alternativos
-#### Informações Solicitadas Indisponíveis
+#### **Informações Solicitadas Indisponíveis**
 Se no Fluxo Básico as informações solicitadas não estiverem disponíveis, o sistema apresentará uma mensagem de erro.
   
   O Administrador da Folha de Pagamento pode
 optar por retornar ao início do Fluxo Básico ou cancelar a operação, ponto em que o caso de uso termina.
-### Formato inválido ou informação insuficiente
+### **Formato inválido ou informação insuficiente**
 Se no Fluxo Básico o Administrador da Folha de Pagamento não tiver especificado informações suficientes para criar o relatório selecionado, o sistema solicitará ao ator
 as informações que faltam.
 
