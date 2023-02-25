@@ -1,16 +1,90 @@
 Operação:
-    criaRelatorioAdm()
+    solicitaRelatorioAdm()
 
 Parâmetros:
-    ??????????????????
+    Nenhum
 
 Referências Cruzadas:
     Caso de Uso: Criar Relatório Administrativo
 
 Pré-Condições:
     Um Admistrador da Folha de Pagamento que deseja visualizar, e talvez salvar, um relatório do sistema
-    O Administrador sabe o nome do funcionário e o tipo e datas usados para a criação do relatório
 
 Pós-Condições:
-    O Administrador visualizou o relatório
-    Caso tenha sido solicitado pelo Administrador, o sistema salvou o relatório
+    O sistema pede as informações necessárias para a criação do relatório
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    criaRelatorioAdm(tipoRelat, dataIni, dataFim, nomesFunc)
+
+Parâmetros:
+    tipoRelat   : tipo do relatório solicitado
+    dataIni     : data de início do relatório solicitado
+    dataFim     : data de fim do relatório solicitado
+    nomesFunc   : nome(s) do(s) funcionário(s) do relatório solicitado
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O Administrador sabe o(s) nome(s) do(s) funcionário(s) e o tipo e datas usados para a criação do relatório
+
+Pós-Condições:
+    O sistema retorna uma Folha de Pagamento com o relatório solicitado
+    O sistema pergunta se o usuário deseja salvar o relatório
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    solicitaSalvamentoRelatorio(relat)
+
+Parâmetros:
+    relat       : relatório que deve ser salvo
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O Administrador deseja salvar o relatório
+
+Pós-Condições:
+    O sistema pergunta o nome do relatório e o local em que ele deve ser salvo
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    salvaRelatorio(relat, nome, local)
+
+Parâmetros:
+    relat       : relatório que deve ser salvo
+    nome        : nome com o qual o relatório deve ser salvo
+    local       : local onde o relatório deve ser salvo
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O Administrador solicitou o salvamento do relatório
+    O Aministrador sabe com qual nome e em qual local o relatório deve ser salvo
+
+Pós-Condições:
+    O sistema salva o relatório caso o usuário tenha confirmado a ação
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    confirmaAção()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O Administrador já realizou as ações necessárias para chegar na fase de confirmação
+
+Pós-Condições:
+    O sistema realmente realiza a ação caso tenha sido confirmada
+
