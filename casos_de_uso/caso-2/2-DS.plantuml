@@ -1,0 +1,48 @@
+@startuml
+Actor AdmFP as AFP
+Participant "empresa : Empresa" as empresa
+Participant "listaFun : ListaDeFuncionarios" as listaFuncionarios
+Participant "func: Funcionario" as funcionario
+Participant "pgto: Pagamento" as pagamento
+Participant "ponto: Ponto" as ponto
+
+-> AFP : solicitaRelatorioAdm()
+activate AFP
+AFP -> empresa : criaRelatorioAdm(tipoRelat, dataIni, dataFim, nomesFunc)
+activate empresa
+alt Informações faltando
+    empresa -> AFP : falta
+    opt arruma informações
+        AFP -> empresa : criaRelatorioAdm(tipoRelat, dataIni, dataFim, nomesFunc)
+    else
+        AFP -> AFP : termina
+    end
+end
+
+loop func in listaFuncionarios
+empresa -> listaFuncionarios : infos = retornaFuncionarioInfos(nomeFunc)
+
+activate  listaFuncionarios 
+listaFuncionarios -> funcionario : getInfos(nomeFunc)
+activate funcionario
+funcionario -> pagamento : infoPag = getInfoPag()
+activate pagamento
+deactivate pagamento
+
+funcionario -> ponto : infoPonto = getInfoPonto()
+activate ponto
+deactivate ponto
+deactivate funcionario
+deactivate  listaFuncionarios
+
+end
+alt erro
+    empresa -> AFP : erro
+    opt
+        AFP -> empresa : criaRelatorioAdm(tipoRelat, dataIni, dataFim, nomesFunc)
+    else
+        AFP -> AFP : termina
+    end
+else ok 
+    empresa -> AFP : relatorio 
+end
