@@ -1,22 +1,29 @@
 package br.ufpr.tabajaras.domain;
 
-import br.ufpr.tabajaras.utils.FileUtils;
 import lombok.Data;
 
 @Data
-public class Gerente implements Usuario {
+public class Gerente{
 
-    public static void abrirEmpresa(){
-        while(true){
-            String input = FileUtils.lerEntrada();
-            if (input.equals("jorge")){
-                System.out.println("Bem vindo lindão");
-            }
-        }
-
+    public void entrar() {
+        // código para permitir o login do gerente
     }
-
-    public void entrar(String usuario, String senha){
+    
+    public void solicitarRelatorioAdministrativo() {
+        // código para solicitar um relatório administrativo
+    }
+    
+    public void manterInformacoesUsuario() {
+        // código para permitir que o gerente mantenha suas informações de usuário
+    }
+    
+    public void gerenciarInformacoes() {
+        // código para permitir que o gerente gerencie as informações dos funcionários
+    }
+    
+    public String getHorasFun(Funcionario func) {
+        // código para obter as horas trabalhadas de um funcionário
+        return "";
     }
     
 }

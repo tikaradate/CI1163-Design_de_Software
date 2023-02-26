@@ -5,8 +5,6 @@ import java.io.InputStreamReader;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import br.ufpr.tabajaras.domain.Gerente;
-
 @SpringBootApplication
 public class TabajarasApplication {
 
@@ -14,9 +12,5 @@ public class TabajarasApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TabajarasApplication.class, args);
-		Gerente.abrirEmpresa();
 	}
-
-	
-
 }
