@@ -25,11 +25,11 @@ empresa -> listaFuncionarios : infos = retornaFuncionarioInfos(nomeFunc)
 activate  listaFuncionarios 
 listaFuncionarios -> funcionario : getInfos(nomeFunc)
 activate funcionario
-funcionario -> pagamento : infoPag = getInfoPag()
+funcionario -> pagamento : infoPag = getInfoPag(nomeFunc)
 activate pagamento
 deactivate pagamento
 
-funcionario -> ponto : infoPonto = getInfoPonto()
+funcionario -> ponto : infoPonto = getInfoPonto(nomeFunc)
 activate ponto
 deactivate ponto
 deactivate funcionario

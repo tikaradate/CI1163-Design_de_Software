@@ -1,4 +1,4 @@
-@startuml
+@startuml caso-7-ds
 
 Participant "func: funcionario" as funcionario
 Participant "empresa : Empresa" as empresa
@@ -6,7 +6,7 @@ Participant "empresa : Empresa" as empresa
 ' Participant "venda: Venda" as venda
 ' Participant "pgto: Pagamento" as pagamento
 Participant "ponto: Ponto" as ponto
-Participant "baseProj: BaseDeDadosProjetos" as baseProjeto
+Participant "baseProj: BaseDeDadosProjetos" as baseProj
 
 -> funcionario: solicitaInsercaoHoras()
 activate funcionario

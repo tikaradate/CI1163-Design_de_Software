@@ -3,36 +3,153 @@
 class Funcionario{
     private nome : String
     private tipoPagamento : TipoPagamentoEnum
+
+    private registrarUsuário(nome:String, senha:String)
+    private validarUsuário(nome:String, senha:String)
+    public inserirInformacoes(nome:String, senha:String)
+    public enviarEndereco(endereco:String)
+    public enviarInformacoesBanco(nome:String, numero:Integer)
+    public atualizar(infos: Info)
+    public gerarRelatorioFuncionario()
+    public getInfos()
+    public iniciarLogin()
+    public cancelarLogin()
+    public escolherMetodo()
+}
+
+enum TipoFuncionarioEnum {
+    public Assalariado
+    public Comissioniado
+    public Horista
+}
+
+class Deducoes {
+    private IR
+    private INSS
+}
+
+
+class ListaDeFuncionarios{
+    private funcionarios : List<Funcionario>
+    public retornaFuncionarioInfos(func: Funcionario): Info
+    public adicionaFunc(func: Funcionario)
+    public buscaFunc(ID: Integer): Funcionario
+    public alterarInformacoes(func: Funcionario)
+    public excluidFuncionario(func: Funcionario)
+}
+
+class Info{
+    private pagamentoInfo : Pagamento
+    private pontoInfo : Ponto
+}
+
+enum TipoPagamentoEnum {
+    public CORREIO 
+    public DEPOSITO_DIRETO
 }
 
 class Pagamento {
     private dia : Date
     private valor : BigDecimal
+    public getInfoPag(func: Funcionario):String
 } 
 
 class Empresa{
+    private numerosCobranca: List<String>
 
-}
+    public criarRelatorioAdministrativo(tipoRelat:Enum, dataIni:Date, dataFim:Date, funcionarios: List<funcionario>):String
+    public getNumerosCobranca() : List<Integer>
+    public forneceNumeroCobranca(numeroCobranca:Integer): String
+    
+    public confirmaAcao()
+    private descartaRelatorio()
+    public cancelar()
+    public confirmar()
+    
+    public salvarRelatorio()
+    public forneceInformacoesSalvar(nome:String, local:String):void
+    public confirmaSalvar():void
+    
+    public adicionarFuncionario()
+    public atualizarFuncionario()
+    public excluirFuncionario()
+
+    public inserirInformacoes(nome:String, tipoFun:TipoFuncionarioEnum, endereco:string, deducoes: Deducoes, tel:String, taxaHora:Integer, salario:BigDecimal, taxaComissao:Integer, limiteHoras:Integer):void
+    private geraFuncionario(nome:String, tipoFun:TipoFuncionarioEnum, endereco:string, deducoes: Deducoes, tel:String, taxaHora:Integer, salario:BigDecimal, taxaComissao:Integer, limiteHoras:Integer, id: Integer): Funcionario
+    public inserirIDFuncionario(ID:Integer): Funcionario
+    public alterarInformacoes(func: Funcionario):void
+    private marcarExclusaoFuncionario(func: Funcionario):void
+    public insereHoras(horas:Date):void
+
+}   
 
 class Venda {
-    private valor : BigDEcimal
+    private valor : BigDecimal
+
+    public criarOrdem() : void
+    public inserirInformacoesOrdem(contatoCliente:String, enderecoCobranca:String, produto:Produto, data:Date):Integer
+    public alterarOrdem():void
+    public inserirIDOrdemDeCompra(idOrdemDeCompra:Integer):void
+    public cancelar():void
+    public confirmar():void
+    private geraOrdem(contatoCliente:String, enderecoCobranca:String, produto:Produto, data:Date):Integer
+    private adicionaOrdem(numero:Integer, funcC:FuncionarioComissionado):void
+    private procura(idOrdemDeCompra:Integer):void
+    private atualizaOrdem(contatoCliente:String, enderecoCobranca:String, produto:Produto, data:Date):void
+    private remove(idOrdemCompra:Integer)
 }
 
 class Gerente {
-
+    public entrar()
+    public solicitarRelatorioAdministrativo()
+    public manterInformacoesUsuario()
+    public gerenciarInformacoes()
+    public getHorasFun(func: Funcionario)
 }
 
 class FolhaDePagamento {
-
+    public executarFolhaPagamento()
+    public calculaPagamento(pagFun): Transacao
+    public enviaTransacao(trans: Transacao)
 }
 
 class BaseDeDadosProjetos {
+    private projetos : List<Projeto>
+    private numeroAtual : String 
 
+    public getNumeroCobranca(proj:Projeto) : String
 }
 
 class Projeto {
     private nome : String
+    private numeroCobranca : Integer
+    public getNumeroCobranca() : Integer
 }
 
+class Ponto{
+    private inicio : Date
+    private fim : Date
+    
+    public getInfoPonto(func:Funcionario):Ponto
+    private criaPonto(func:Funcionario, dataIni:Date, dataFim:Date)
+    
+}
+
+
+' ---------------------- RELACOES ----------------------
+ListaDeFuncionarios -> Funcionario
+Empresa -down-> Funcionario
+Empresa -> Gerente
+Empresa -> ListaDeFuncionarios 
+Gerente -> FolhaDePagamento
+Funcionario -> Pagamento
+Funcionario -down-> Ponto
+Funcionario -down-> Venda
+Ponto -> Projeto
+Empresa -> BaseDeDadosProjetos
+BaseDeDadosProjetos -down-> Projeto
+FolhaDePagamento -down-> Pagamento
+TipoPagamentoEnum - Pagamento
+TipoFuncionarioEnum - Funcionario
 
 @enduml

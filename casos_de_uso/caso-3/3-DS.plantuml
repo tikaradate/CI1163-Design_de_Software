@@ -12,7 +12,7 @@ Participant "roj: Projeto" as projeto
 alt tipoProjeto == horasProjeto
 funcionario -> empresa: getNumerosCobranca()
     loop proj in BaseProj
-        empresa -> baseProjeto: getNumeroCobranca()
+        empresa -> baseProjeto: getNumeroCobranca(proj)
         baseProjeto -> projeto: numeroAtual = getNumeroCobranca()
         empresa -> empresa: numerosCobranca.append(numeroAtual)
     end
@@ -22,7 +22,7 @@ funcionario -> empresa: getNumerosCobranca()
     opt
         funcionario -> empresa: salvarRelatorio()
         empresa --> funcionario: solicita nome e local do arquivo
-        funcionario -> empresa: forneceInformacoes(nome, local)
+        funcionario -> empresa: forneceInformacoesSalvar(nome, local)
         empresa --> funcionario: pede confirmação
         funcionario -> empresa: confirmaSalvar()
     else

@@ -1,4 +1,4 @@
-@startuml
+@startuml ds-caso-5
 
 Participant "afp : Gerente" as AFP
 Participant "empresa : Empresa" as empresa
@@ -29,8 +29,8 @@ opt Adicionar
 else Atualizar
     AFP -> empresa : atualizarFuncionario()
     AFP <-- empresa : solicita ID do funcionário
-    AFP -> empresa : funcionario= inserirIDFuncionario(ID)
-    empresa -> listaFuncionarios : funcionario= buscaFunc(ID)
+    AFP -> empresa : funcionario = inserirIDFuncionario(ID)
+    empresa -> listaFuncionarios : funcionario = buscaFunc(ID)
     activate listaFuncionarios
     listaFuncionarios -> funcionario: buscaFunc(ID)
     activate funcionario
@@ -44,7 +44,6 @@ else Atualizar
             AFP -> empresa : cancelar()
         end
     end
-    AFP <-- empresa : funcionario
     AFP -> AFP: altera alguma das informações de funcionario
     AFP -> empresa : alterarInformacoes(funcionario)
     
