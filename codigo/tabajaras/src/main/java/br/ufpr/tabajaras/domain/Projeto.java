@@ -4,7 +4,10 @@ import lombok.Data;
 
 @Data
 public class Projeto {
-
-    private String nomeProjeto;
+    private String nome;
+    private Integer numeroCobranca;
     
+    public Integer getNumeroCobranca() {
+        return numeroCobranca;
+    }
 }
