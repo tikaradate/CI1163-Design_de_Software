@@ -1,0 +1,90 @@
+@startuml
+
+' Participant "afp : Gerente" as AFP
+
+Participant "funcCom: Funcionario" as FC
+' Participant "empresa : Empresa" as empresa
+' Participant "listaFun : ListaDeFuncionarios" as listaFuncionarios
+Participant "venda: Venda" as venda
+' Participant "pgto: Pagamento" as pagamento
+' Participant "ponto: Ponto" as ponto
+' Participant "baseProj: BaseDeDadosProjetos" as baseProjeto
+
+ -> FC: gerenciarOrdens()
+
+alt Criar ordem
+    FC -> venda : criarOrdem()
+    FC <-- venda : solicita informações da ordem de compra
+    FC -> venda : numeroOrdem = inserirInformacoesOrdem(contatoCliente, endCobranca, produto, data)
+    venda -> venda : numero = geraOrdem(contatoCliente, endCobranca, produto, data)
+    ' não sei muito sobre essa próxima linha
+    venda -> venda : adicionaOrdem(numero, FC) 
+else Alterar ordem
+    FC -> venda : alterarOrdem()
+    FC <-- venda : solicita informações da ordem de compra
+    FC -> venda : inserirIDOrdemDeCompra(IDOrdemDeCompra)
+    venda -> venda : procura(IDOrdemDeCompra)v
+    alt Ordem de compra não encontrado
+        FC <- venda : mensagem de erro avisando que a ordem não existe
+        opt
+            FC -> venda : inserirIDOrdemDeCompra(IDOrdemDeCompra)
+        else
+            FC -> venda : cancelar()
+        end
+    else Acesso inválido à ordem
+        FC <- venda : mensagem de erro avisando que o acesso à ordem não é válido
+        opt
+            FC -> venda : inserirIDOrdemDeCompra(IDOrdemDeCompra)
+        else
+            FC -> venda : cancelar()
+        end
+    else Acesso de ordem fechada
+        FC <- venda : mensagem de erro avisando que a ordem está fechada
+        opt
+            FC -> venda : inserirIDOrdemDeCompra(IDOrdemDeCompra)
+        else
+            FC -> venda : cancelar()
+        end
+    end
+    FC <-- venda : exibe a ordem de compra 
+    |||
+    FC -> venda : inserirInformacoesOrdem(contatoCliente, endCobranca, produto, data)
+    venda -> venda : atualizaOrdem(contatoCliente, endCobranca, produto, data)
+else Cancelar ordem
+    FC -> venda : cancelarOrdem()
+    FC <-- venda : solicita informações da ordem de compra
+    FC -> venda : inserirIDOrdemDeCompra(IDOrdemDeCompra)
+    venda -> venda : procura(IDOrdemDeCompra)
+    alt Ordem de compra não encontrado
+        FC <- venda : mensagem de erro avisando que a ordem não existe
+        opt
+            FC -> venda : inserirIDOrdemDeCompra(IDOrdemDeCompra)
+        else
+            FC -> venda : cancelar()
+        end
+    else Acesso inválido à ordem
+        FC <- venda : mensagem de erro avisando que o acesso à ordem não é válido
+        opt
+            FC -> venda : inserirIDOrdemDeCompra(IDOrdemDeCompra)
+        else
+            FC -> venda : cancelar()
+        end
+    else Acesso de ordem fechada
+        FC <- venda : mensagem de erro avisando que a ordem está fechada
+        opt
+            FC -> venda : inserirIDOrdemDeCompra(IDOrdemDeCompra)
+        else
+            FC -> venda : cancelar()
+        end
+    end
+    FC <-- venda : exibe a ordem de compra 
+    FC <-- venda : solicita confirmação da exclusão
+    alt Cancelar exlusão
+        FC -> venda : cancelar()
+    end
+    FC -> venda : confirmar()
+    venda -> venda : remove(IDOrdemDeCompra)
+end
+
+
+@enduml
