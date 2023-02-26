@@ -11,15 +11,9 @@ rectangle "ListaDeFuncionarios" as lista
 'rectangle "Projeto" as projeto
 label " " as ini
 
-ini -down-> gerente     : gerenciarInformacoes()
-gerente -> empresa      : 1[adicionar] adicionarFuncionario()
-empresa -> lista        : 1.1[adicionar] inserirInformacoes(nome, tipoFun, endereco, deducoes, tel, taxa, salario, comissao, limiteHoras)
-lista -> lista          : 1.2[adicionar] func = criaFuncionario()
-gerente -> empresa      : 2[atualizar] atualizarFuncionario()
-empresa -> lista        : 2.1[atualizar] func = inserirIDFuncionario(ID)
-lista -> lista          : 2.2[atualizar] alterarInformacoes(nome, tipoFun, endereco, deducoes, tel, taxa, salario, comissao, limiteHoras)
-gerente -> empresa      : 3[excluir] excluirFuncionario()
-empresa -> lista        : 3.1[excluir] func = inserirIDFuncionario(ID)
-lista -> lista          : 3.2[excluir] excluiFunc(func)\n3.3[excluir] confirmar()
+ini     -down-> gerente     : gerenciarInformacoes()
+gerente -down-> empresa     : 1[adicionar] adicionarFuncionario()\n2[atualizar] atualizarFuncionario()\n3[excluir] excluirFuncionario()
+empresa -down-> lista       : 1.1[adicionar] inserirInformacoes(nome, tipoFun, endereco, deducoes, tel, taxa, salario, comissao, limiteHoras)\n2.1[atualizar] func = inserirIDFuncionario(ID)\n3.1[excluir] func = inserirIDFuncionario(ID)
+lista   -down-> lista       : 1.2[adicionar] func = criaFuncionario()\n2.2[atualizar] alterarInformacoes(nome, tipoFun, endereco, deducoes, tel, taxa, salario, comissao, limiteHoras)\n3.2[excluir] excluiFunc(func)\n3.3[excluir] confirmar()
 
 @enduml
