@@ -1,0 +1,25 @@
+@startuml
+rectangle "Gerente" as gerente
+'rectangle "FolhaDePagamento" as folha
+'rectangle "Pagamento" as pagamento
+rectangle "Funcionario" as funcionario
+rectangle "Empresa" as empresa
+rectangle "ListaDeFuncionarios" as lista
+'rectangle "Venda" as venda
+'rectangle "Ponto" as ponto
+'rectangle "BaseDeDadosProjetos" as base
+'rectangle "Projeto" as projeto
+label " " as ini
+
+ini -down-> gerente     : gerenciarInformacoes()
+gerente -> empresa      : 1[adicionar] adicionarFuncionario()
+empresa -> lista        : 1.1[adicionar] inserirInformacoes(nome, tipoFun, endereco, deducoes, tel, taxa, salario, comissao, limiteHoras)
+lista -> lista          : 1.2[adicionar] func = criaFuncionario()
+gerente -> empresa      : 2[atualizar] atualizarFuncionario()
+empresa -> lista        : 2.1[atualizar] func = inserirIDFuncionario(ID)
+lista -> lista          : 2.2[atualizar] alterarInformacoes(nome, tipoFun, endereco, deducoes, tel, taxa, salario, comissao, limiteHoras)
+gerente -> empresa      : 3[excluir] excluirFuncionario()
+empresa -> lista        : 3.1[excluir] func = inserirIDFuncionario(ID)
+lista -> lista          : 3.2[excluir] excluiFunc(func)\n3.3[excluir] confirmar()
+
+@enduml
