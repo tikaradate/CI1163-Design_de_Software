@@ -1,0 +1,22 @@
+@startuml
+rectangle "Gerente" as gerente
+rectangle "FolhaDePagamento" as folha
+rectangle "Pagamento" as pagamento
+rectangle "Funcionario" as funcionario
+rectangle "Empresa" as empresa
+rectangle "ListaDeFuncionarios" as lista
+'rectangle "Venda" as venda
+rectangle "Ponto" as ponto
+'rectangle "BaseDeDadosProjetos" as base
+'rectangle "Projeto" as projeto
+label "Relogio" as ini
+
+ini     -down-> folha       : executarFolhaPagamento()
+folha   -> folha            : 1 funcPag = getFuncPag()\n8 paga(infos)
+folha   -left-> pagamento   : 2 pag   = getPagamento()
+folha   -down-> gerente          : 3 horas = getHoras(funcPag)
+gerente -down-> empresa          : 4 procuraFunc(funcPag)
+empresa -right-> lista            : 5 getFunc(funcPag)
+empresa -down-> funcionario      : 6 somaHoras(funcPag)
+funcionario -down-> ponto        : 7 retornaHoras()
+@enduml
