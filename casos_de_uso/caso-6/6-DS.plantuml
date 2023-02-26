@@ -11,9 +11,11 @@ Participant "venda: Venda" as venda
 ' Participant "baseProj: BaseDeDadosProjetos" as baseProjeto
 
  -> FC: gerenciarOrdens()
-
+activate FC
 alt Criar ordem
     FC -> venda : criarOrdem()
+    activate venda
+
     FC <-- venda : solicita informações da ordem de compra
     FC -> venda : numeroOrdem = inserirInformacoesOrdem(contatoCliente, endCobranca, produto, data)
     venda -> venda : numero = geraOrdem(contatoCliente, endCobranca, produto, data)

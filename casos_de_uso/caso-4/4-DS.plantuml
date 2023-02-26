@@ -3,7 +3,9 @@
 actor usuário
 Participant "func: Funcionario" as funcionario
 
+activate usuário
 usuário -> funcionario: iniciarLogin()
+activate funcionario
 funcionario --> usuário : solicita nome e senha
 usuário -> funcionario : inserirInformacoes(nome, senha)
 alt Usuário ou senha inválido
@@ -17,6 +19,7 @@ end
 
 funcionario -> funcionario : registra usuário
 usuário <-- funcionario : informa usuário
+deactivate funcionario
 
 
 @enduml
