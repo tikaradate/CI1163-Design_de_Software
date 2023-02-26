@@ -13,9 +13,10 @@ label " " as ini
 
 ini -down-> funcionario     : gerarRelatorioFuncionario()
 funcionario -> funcionario  : 1 enviaInformacoes(tipoRelatorio, dataInico, dataFim)
-funcionario -> projeto      : 2 projetos = getProj()
-funcionario -> pagamento    : 2 pagamento = getPag()
-funcionario -> empresa      : 2 relat = pedeRelatorio(tipoRelatorio, dataInico, dataFim, nomeFunc, projetos, pagamento)
-empresa -> base             : 3 infos = getInfos(dataInico, dataFim, nomeFunc, projetos)
+funcionario -up-> projeto      : 2 projetos = getProj()
+funcionario -left-> pagamento    : 3 pagamento = getPag()
+funcionario -down-> empresa      : 4 relat = pedeRelatorio(tipoRelatorio, dataInico, dataFim, nomeFunc, projetos, pagamento)
+empresa -down-> base             : 5 infos = getInfos(dataInico, dataFim, nomeFunc, projetos)
+empresa -> empresa          : 6 fazRelatorio(infos)
 
 @enduml
