@@ -1,0 +1,1111 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\def \escalaDiagramasDSS{0.15}
+\def \escalaDiagramasDS{0.15}
+\def \escalaDiagramasDCom{0.15}
+
+\title{Design de Software}
+\author{João Lucas Cordeiro \\
+Jorge Lucas Vicilli Jabczenski \\
+Vinicius Tikara Venturi Date}
+\date{26 de Fevereiro}
+
+\begin{document}
+
+\maketitle
+
+\section{Caso 2}
+
+\subsection{Contrato de Operação}
+
+Operação:
+    solicitaRelatorioAdm()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    Um Admistrador da Folha de Pagamento deseja visualizar, e talvez salvar, um relatório do sistema
+
+Pós-Condições:
+    O sistema está pronto para pedir informações para a criação do relatório
+
+------------------------------------------------------------------------------
+
+Operação:
+    criaRelatorioAdm(tipoRelat, dataIni, dataFim, nomesFunc)
+
+Parâmetros:
+\begin{itemize}
+    \item tipoRelat   : tipo do relatório solicitado
+    \item dataIni     : data de início do relatório solicitado
+    \item dataFim     : data de fim do relatório solicitado
+    \item nomesFunc   : nome(s) do(s) funcionário(s) do relatório solicitado
+\end{itemize}
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O Administrador sabe o(s) nome(s) do(s) funcionário(s) e o tipo e datas usados para a criação do relatório
+
+Pós-Condições:
+    O sistema mostra o relatório requerido com a opção de salvamento
+
+------------------------------------------------------------------------------
+
+Operação:
+    solicitaSalvamentoRelatorio(relat)
+
+Parâmetros:
+\begin{itemize}
+    \item relat       : relatório que deve ser salvo
+\end{itemize}
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    Um Administrador deseja salvar o relatório
+
+Pós-Condições:
+    O sistema salvou o relatório caso as informações sejam dadas e o usuário confirme a ação
+
+------------------------------------------------------------------------------
+
+Operação:
+    salvaRelatorio(relat, nome, local)
+
+Parâmetros:
+\begin{itemize}
+    \item relat       : relatório que deve ser salvo
+    \item nome        : nome com o qual o relatório deve ser salvo
+    \item local       : local onde o relatório deve ser salvo
+\end{itemize}
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O Aministrador sabe com qual nome e em qual local o relatório deve ser salvo
+
+Pós-Condições:
+    O sistema salva o relatório caso o usuário tenha confirmado a ação
+
+------------------------------------------------------------------------------
+
+Operação:
+    confirmaAcao()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O Administrador já realizou as ações necessárias para chegar na fase de confirmação
+
+Pós-Condições:
+    O sistema realmente realiza a ação caso tenha sido confirmada
+
+------------------------------------------------------------------------------
+
+Operação:
+    descartaRelatorio(relat)
+
+Parâmetros:
+\begin{itemize}
+    \item relat       : relatório visualziado anteriormente
+\end{itemize}
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O Administrador não quis salvar o relatório visualizado
+
+Pós-Condições:
+    O sistema não possui o relatório salvo
+
+------------------------------------------------------------------------------
+
+Operação:
+    infoIndisp()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    As informações requeridas pelo administrador não estão disponíveis
+
+Pós-Condições:
+    Caso o administrador queira voltar à tela inicial, o sistema mostra a tela inicial
+    Caso contrário, o sistema é encerrado
+
+------------------------------------------------------------------------------
+
+Operação:
+    infoInsuf()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    As informações entregues pelo administrador são insuficientes para criar um relatório
+
+Pós-Condições:
+    Caso o administrador preencha as informações, o sistema está pronto para seguir com a criação do relatório
+    Caso contrário, o sistema é encerrado
+
+------------------------------------------------------------------------------
+
+Operação:
+    retornaTelaIni()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O usuário deseja voltar à tela inicial do sistema
+
+Pós-Condições:
+    O sistema mostra a tela inicial
+
+------------------------------------------------------------------------------
+
+Operação:
+    cancelaOp()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O usuário deseja cancelar a operação que estava realizando
+
+Pós-Condições:
+    O sistema termina sua execução
+
+------------------------------------------------------------------------------
+
+Operação:
+    completaInfoRelat()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O usuário entregou informações imcompletas anteriormente
+
+Pós-Condições:
+    O sistema agora possui todas as informações necessárias para criar um relatório
+
+
+
+
+\subsection{Diagrama de Sequência de Sistema}
+
+\begin {center}
+\includegraphics[scale = 0.4]{DSS/2-DSS.png}
+\end {center}
+
+\subsection{Diagrama de Sequência}
+
+\begin {center}
+\includegraphics[scale = 0.25]{DS/2-DS.png}
+\end {center}
+
+\subsection{Diagrama de Comunicação}
+
+\begin {center}
+\includegraphics[scale = 0.6]{DCom/2-DCom.png}
+\end {center}
+
+\newpage
+
+\section{Caso 3}
+
+\subsection{Contrato de Operação}
+
+Operação:
+    gerarRelatorioFuncionario()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar relatório de funcionário
+
+Pré-Condições:
+    O Funcionário deve estar conectado ao sistema antes do início deste caso de uso
+
+Pós-Condições:
+    O estado do sistema é inalterado por este caso de uso.
+
+------------------------------------------------------------------------------
+
+Operação:
+    enviaInformacoes(tipoRelatorio, dataInico, dataFim)
+
+Parâmetros:
+\begin{itemize}
+   \item  tipoRelatorio: tipo de relatorio que sera gerado
+   \item  dataInico    : data de inicio do relatorio
+   \item  dataFim      : data de fim do relatorio
+\end{itemize}
+Referências Cruzadas:
+    Caso de Uso: Criar relatório de funcionário
+
+Pré-Condições:
+    o funcionario deve ter informado que quer gerar um relatorio
+
+Pós-Condições:
+    o sistema pesquisa as informaçoes fornecidas no banco de dados
+
+------------------------------------------------------------------------------
+
+Operação:
+    voltarParaInicio()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar relatório de funcionário
+
+Pré-Condições:
+    as informaçoes solicitadas devem estar indisponiveis
+
+Pós-Condições:
+   o funcionario volta para o começo do caso de uso
+------------------------------------------------------------------------------
+
+Operação:
+    cancelarOperacao()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar relatório de funcionário
+
+Pré-Condições:
+    o sistema deve ter informado que as informações estão indisponiveis ou invalidas
+
+Pós-Condições:
+    a operacao é cancelada
+
+------------------------------------------------------------------------------
+
+Operação:
+    forneceNumeroCobrança(numeroCobranca)
+
+Parâmetros:
+\begin{itemize}
+    \item numeroCobranca : numero da cobranca do relatorio
+\end{itemize}
+Referências Cruzadas:
+    Caso de Uso: Criar relatório de funcionário
+
+Pré-Condições:
+    o sistema deve ter devolvido os numeros de cobranças disponiveis
+
+Pós-Condições:
+    o sistema gera o relatorio
+
+------------------------------------------------------------------------------
+Operação:
+    salvarRelatorio(numeroCobranca)
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar relatório de funcionário
+
+Pré-Condições:
+    o sistema deve ter devolvido corretamente os dados do relatorio
+
+Pós-Condições:
+    o sistema pede para o funcionario confimar o salvamento do relatorio
+
+------------------------------------------------------------------------------
+Operação:
+    confirmaSalvar()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar relatório de funcionário
+
+Pré-Condições:
+    o funcionario deve ter solicitado para salvar o relatorio
+
+Pós-Condições:
+    o relatorio é salvo
+
+
+\subsection{Diagrama de Sequência de Sistema}
+
+\begin {center}
+\includegraphics[scale = 0.5]{DSS/3-DSS.png}
+\end {center}
+
+\subsection{Diagrama de Sequência}
+
+\begin {center}
+\includegraphics[scale = 0.35]{DS/3-DS.png}
+\end {center}
+
+\newpage
+
+\subsection{Diagrama de Comunicação}
+
+\begin {center}
+\includegraphics[scale = 0.5]{DCom/3-DCom.png}
+\end {center}
+
+\newpage
+
+\section{Caso 4}
+
+\subsection{Contrato de Operação}
+
+Operação:
+    iniciarLogin()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Entrar
+
+Pré-Condições:
+    O usuário deseja fazer login no sistema
+
+Pós-Condições:
+    O sistema mostra a tela de login
+
+------------------------------------------------------------------------------
+
+Operação:
+    inserirInformacoes(nome, senha)
+
+Parâmetros:
+\begin{itemize}
+    \item nome        : nome do login do usuario
+    \item senha       : senha do login do usuario
+\end{itemize}
+
+Referências Cruzadas:
+    Caso de Uso: Entrar
+
+Pré-Condições:
+    O usuário deseja fazer login no sistema
+
+Pós-Condições:
+    O usuário consegue fazer login
+
+------------------------------------------------------------------------------
+
+Operação:
+    cancelarLogin()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Entrar
+
+Pré-Condições:
+    O usuário desistiu de fazer login no sistema
+
+Pós-Condições:
+    A execução é encerrada
+
+
+\subsection{Diagrama de Sequência de Sistema}
+
+\begin {center}
+\includegraphics[scale = 0.7]{DSS/4-DSS.png}
+\end {center}
+
+\subsection{Diagrama de Sequência}
+
+\begin {center}
+\includegraphics[scale = 0.7]{DS/4-DS.png}
+\end {center}
+
+\newpage
+
+\subsection{Diagrama de Comunicação}
+
+\begin {center}
+\includegraphics[scale = 0.8]{DCom/4-DCom.png}
+\end {center}
+
+\newpage
+
+\section{Caso 5}
+
+\subsection{Contrato de Operação}
+
+Operação:
+    gerenciarInformacoes()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    Um Admistrador deseja gerenciar informacoes sobre os funcionários
+
+Pós-Condições:
+    O sistema está pronto para realizar as mudanças requeridas
+
+------------------------------------------------------------------------------
+
+Operação:
+    adicionarFuncionario()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    O Administrador deseja adicionar um funcionário
+
+Pós-Condições:
+    O sistema está pronto para adicionar um funcionário
+
+------------------------------------------------------------------------------
+
+Operação:
+    inserirInformacoes(nome, tipoFun, endereco, deducoes, tel, taxa, salario, comissao, limiteHoras)
+
+Parâmetros:
+\begin{itemize}
+
+    \item nome        : nome do funcionário
+    \item tipoFun     : tipo de funcionário
+    \item endereco    : endereço do funcionário
+    \item deducoes    : deducoes de imposto do funcionário
+    \item tel         : telefone do funcionário
+    \item taxa        : taxa horária do funcionário
+    \item salario     : salário do funcionário
+    \item comissao    : comissão do funcionário
+    \item limiteHoras : limite de horas do funcionário
+\end{itemize}
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    O Administrador sabe as informações do usuário que irá gerenciar
+
+Pós-Condições:
+    O funcionário teve as informações inseridas
+
+------------------------------------------------------------------------------
+
+Operação:
+    atualizarFuncionario()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    O Administrador deseja atualizar um funcionário
+
+Pós-Condições:
+    O sistema está preparado para atualizar um funcionário
+
+------------------------------------------------------------------------------
+
+Operação:
+    inserirIDFuncionario(ID)
+
+Parâmetros:
+    ID          : identificador do funcionário requerido
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    O Administrador sabe o ID do funcionário que deseja gerenciar
+
+Pós-Condições:
+    O sistema sabe qual funcionário o administrador deseja gerenciar
+
+------------------------------------------------------------------------------
+
+Operação:
+    alterarInformacoes(nome, tipoFun, endereco, deducoes, tel, taxa, salario, comissao, limiteHoras)
+
+Parâmetros:
+\begin{itemize}
+    \item nome        : nome do funcionário
+    \item tipoFun     : tipo de funcionário
+    \item endereco    : endereço do funcionário
+    \item deducoes    : deducoes de imposto do funcionário
+    \item tel         : telefone do funcionário
+    \item taxa        : taxa horária do funcionário
+    \item salario     : salário do funcionário
+    \item comissao    : comissão do funcionário
+    \item limiteHoras : limite de horas do funcionário
+\end{itemize}
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    O Administrador sabe as informações que deseja atualizar no funcionário
+
+Pós-Condições:
+    O funcionário teve as informações alteradas
+
+------------------------------------------------------------------------------
+
+Operação:
+    excluirFuncionario()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    O Administrador deseja excluir um funcionário
+
+Pós-Condições:
+    O sistema está preparado para excluir um funcionário
+
+------------------------------------------------------------------------------
+
+Operação:
+    cancelar()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    O administrador deseja cancelar o que está fazendo
+
+Pós-Condições:
+    A operacao é cancelada e a execução encerrada
+
+------------------------------------------------------------------------------
+
+Operação:
+    confirmar()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    O sistema deseja saber se o administrador realmente deseja fazer as alterações
+    O administrador quer realmente fazer as alterações
+
+Pós-Condições:
+    A operacao é confirmada e realizada efetivamente
+
+
+\subsection{Diagrama de Sequência de Sistema}
+
+\begin {center}
+\includegraphics[scale = 0.4]{DSS/5-DSS.png}
+\end {center}
+
+\subsection{Diagrama de Sequência}
+
+\begin {center}
+\includegraphics[scale = 0.3]{DS/5-DS.png}
+\end {center}
+
+\newpage
+
+\subsection{Diagrama de Comunicação}
+
+\begin {center}
+\includegraphics[scale = 0.5]{DCom/5-DCom.png}
+\end {center}
+
+\newpage
+
+\section{Caso 6}
+
+\subsection{Contrato de Operação}
+Operação:
+    gerenciarOrdens()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Ordem de Compra
+
+Pré-Condições:
+    O usuário deseja realizar alguma ação com as ordens
+
+Pós-Condições:
+    O sistema está disposta a realizar alguma ação com as origens, mas precisa saber qual
+
+------------------------------------------------------------------------------
+
+Operação:
+    criarOrdem()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Ordem de Compra
+
+Pré-Condições:
+    O usuário deseja criar uma ordem
+
+Pós-Condições:
+    O sistema criou uma ordem com as informações entregues pelo usuário
+
+------------------------------------------------------------------------------
+
+Operação:
+    inserirInformacoesOrdem(contatoCliente, endCobranca, produtod, data)
+
+Parâmetros:
+\begin{itemize}
+    \item contatoCliente      : ponto de contato do cliente
+    \item endCobranca         : endereço da cobrança
+    \item produtod            : descritor dos produtos
+    \item data                : data da ordem
+\end{itemize}
+
+Referências Cruzadas:
+    Caso de Uso: Manter Ordem de Compra
+
+Pré-Condições:
+    O usuário sabe as informações necessárias para criar a ordem
+
+Pós-Condições:
+    O sistema cria uma ordem de compra e altera boa parte das informações dela
+
+------------------------------------------------------------------------------
+
+Operação:
+    alterarOrdem()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Ordem de Compra
+
+Pré-Condições:
+    O usuário deseja alterar as informações de alguma ordem de compra
+
+Pós-Condições:
+    O sistema está preparada para alterar dados de alguma ordem de compra
+
+------------------------------------------------------------------------------
+
+Operação:
+    inserirIDOrdemDeCompra(IDOrdemDeCompra)
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Ordem de Compra
+
+Pré-Condições:
+    O usuário sabe o ID da ordem de compra que deseja gerenciar
+
+Pós-Condições:
+    O sistema sabe qual ordem de compra o usuário deseja gerenciar
+
+------------------------------------------------------------------------------
+
+Operação:
+    cancelar()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Ordem de Compra
+
+Pré-Condições:
+    O usuário deseja cancelar o que quer que esteja fazendo
+
+Pós-Condições:
+    O sistema encerra a execução
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    cancelarOrdem()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Ordem de Compra
+
+Pré-Condições:
+    O usuário deseja cancelar uma ordem de compra
+
+Pós-Condições:
+    O sistema está preparado para receber informações sobre uma ordem de compra que deverá cancelar
+
+------------------------------------------------------------------------------
+
+Operação:
+    inserirIDOrdemDeCompra(IDOrdemDeCompra)
+
+Parâmetros:
+\begin{itemize}
+    \item IDOrdemDeCompra     : ID da ordem de compra que deverá ser cancelada
+\end{itemize}
+
+Referências Cruzadas:
+    Caso de Uso: Manter Ordem de Compra
+
+Pré-Condições:
+    O usuário deseja cancelar uma ordem de compra que sabe o ID
+
+Pós-Condições:
+    O sistema sabe qual ordem de compra irá cancelar
+
+------------------------------------------------------------------------------
+
+Operação:
+    confirmar()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    O sistema deseja saber se o administrador realmente deseja fazer as alterações
+    O administrador quer realmente fazer as alterações
+
+Pós-Condições:
+    A operacao é confirmada e realizada efetivamente
+
+\subsection{Diagrama de Sequência de Sistema}
+
+\begin {center}
+\includegraphics[scale = 0.35]{DSS/6-DSS.png}
+\end {center}
+
+\subsection{Diagrama de Sequência}
+
+\begin {center}
+\includegraphics[scale = 0.3]{DS/6-DS.png}
+\end {center}
+
+\newpage
+
+\subsection{Diagrama de Comunicação}
+
+\begin {center}
+\includegraphics[scale = 0.65]{DCom/6-DCom.png}
+\end {center}
+
+\newpage
+
+\section{Caso 7}
+
+\subsection{Contrato de Operação}
+
+Operação:
+    solicitaInsercaoHoras()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Cartão de Ponto
+
+Pré-Condições:
+    O usuário deseja alterar as informações do seu cartão de ponto
+
+Pós-Condições:
+    O sistema mostra a lista de números de cobrança caso esteja disponível
+    O usuário agora pode atualizar o cartão
+
+------------------------------------------------------------------------------
+
+Operação:
+    insereHoras()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Cartão de Ponto
+
+Pré-Condições:
+    O usuário possui as informações que deseja inserir no ponto
+
+Pós-Condições:
+    O cartão de ponto possui as novas informações
+
+------------------------------------------------------------------------------
+
+Operação:
+    cancelaOp()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O usuário deseja cancelar a operação que estava realizando
+
+Pós-Condições:
+    O sistema termina sua execução
+
+------------------------------------------------------------------------------
+
+Operação:
+    apertaOk()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O sistema mostra uma informação que o usuário precisa confirmar que entendeu
+
+Pós-Condições:
+    O usuário entendeu a situação
+
+------------------------------------------------------------------------------
+
+Operação:
+    enviaPonto()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O sistema possui um cartão alterado localmente que deve ser enviado
+
+Pós-Condições:
+    O cartão foi enviado
+
+
+\subsection{Diagrama de Sequência de Sistema}
+
+\begin {center}
+\includegraphics[scale = 0.4]{DSS/7-DSS.png}
+\end {center}
+
+\subsection{Diagrama de Sequência}
+
+\begin {center}
+\includegraphics[scale = 0.33]{DS/7-DS.png}
+\end {center}
+
+\newpage
+
+\subsection{Diagrama de Comunicação}
+
+\begin {center}
+\includegraphics[scale = 0.65]{DCom/7-DCom.png}
+\end {center}
+
+\newpage
+
+\section{Caso 8}
+
+\subsection{Contrato de Operação}
+
+Operação:
+    executarFolhaPagamento()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Execute a folha de pagamento
+
+Pré-Condições:
+    deve ser um dia de pagamento válido
+
+Pós-Condições:
+    as ordens de pagamento dos funcionarios são executadas
+    funcionarios marcados como excluidos são removidos do sistema
+
+
+
+\newpage
+
+\subsection{Diagrama de Sequência de Sistema}
+
+\begin {center}
+\includegraphics[scale = 0.6]{DSS/8-DSS.png}
+\end {center}
+
+\subsection{Diagrama de Sequência}
+
+\begin {center}
+\includegraphics[scale = 0.32]{DS/8-DS.png}
+\end {center}
+
+\newpage
+
+\subsection{Diagrama de Comunicação}
+
+\begin {center}
+\includegraphics[scale = 0.6]{DCom/8-DCom.png}
+\end {center}
+
+\newpage
+
+
+
+\section{Caso 9}
+
+\subsection{Contrato de Operação}
+
+Operação:
+    selecionarPagamento()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Selecione o método de pagamento
+
+Pré-Condições:
+    Um funcionário quer selecionar um método de pagamento.
+
+Pós-Condições:
+    O sistema está pronto para pedir informações para a criação do relatório
+
+------------------------------------------------------------------------------
+
+Operação:
+    escolherMetodo()
+
+Parâmetros:
+\begin{itemize}
+    \item  metodo: método de pagamento escolhido pelo funcionário
+\end{itemize}
+
+Referências Cruzadas:
+    Caso de Uso: Selecione o método de pagamento
+
+Pré-Condições:
+    O funcionário requisitou a alteração de metódo de pagamento
+
+Pós-Condições:
+    O sistema não muda
+
+------------------------------------------------------------------------------
+
+Operação:
+    enviarEndereco(endereco)
+
+Parâmetro
+\begin{itemize}
+    \item endereco: endereço para o qual o cheque será enviado
+\end{itemize}
+Referências Cruzadas:
+    Caso de Uso: Selecione o método de pagamento
+
+Pré-Condições:
+    O funcionário solicitou a alteração de método
+
+Pós-Condições:
+    O sistema altera o método e informações de pagamento do usuário
+    
+------------------------------------------------------------------------------
+
+Operação:
+    enviarInformacoesBanco(nome, numer)
+
+Parâmetros:
+\begin{itemize}
+   \item nome: nome do banco que será depositado
+   \item número: número do banco que será depositado
+\end{itemize}
+Referências Cruzadas:
+    Caso de Uso: Selecione o método de pagamento
+
+Pré-Condições:
+    O funcionário solicitou a alteração de método
+
+Pós-Condições:
+    O sistema altera o método e informações de pagamento do usuário
+
+
+\newpage
+
+\subsection{Diagrama de Sequência de Sistema}
+
+\begin {center}
+\includegraphics[scale = 0.8]{DSS/9-DSS.png}
+\end {center}
+
+\subsection{Diagrama de Sequência}
+
+\begin {center}
+\includegraphics[scale = 0.7]{DS/9-DS.png}
+\end {center}
+
+\newpage
+
+\subsection{Diagrama de Comunicação}
+
+\begin {center}
+\includegraphics[scale = 0.9]{DCom/9-DCom.png}
+\end {center}
+
+\newpage
+
+\section{Diagrama de Classes Visão de Projeto}
+
+\end{document}
