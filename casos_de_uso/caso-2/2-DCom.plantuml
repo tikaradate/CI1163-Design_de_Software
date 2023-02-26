@@ -13,9 +13,9 @@ label " " as ini
 
 ini -down-> gerente      : solicitaRelatorioAdm()
 gerente -down-> empresa      : 1 relat = criaRelatorioAdm(tipoRelat, dataIni, dataFim, nomesFunc)
-empresa -down-> lista        : 2 func = retornaFuncionario(nomeFunc)
-lista   -right-> funcionario  : 3 func = procuraFuncionario(momeFunc)\n4 infos = getInfos(func)
-funcionario -up-> pagamento : 5 infoPag = getInfoPag()
-funcionario -down-> ponto : 6 infoPonto = getIndoPonto()
-empresa --> empresa      : 7 fazRelatorio(func)
+empresa -down-> lista        : 2 funcInfos = retornaFuncionario(nomeFunc)
+lista   -right-> funcionario  : 3 infos = getInfos(func)
+funcionario -up-> pagamento : 4 infoPag = getInfoPag()
+funcionario -down-> ponto : 5 infoPonto = getIndoPonto()
+empresa --> empresa      : 6 fazRelatorio(funcInfos)
 @enduml
