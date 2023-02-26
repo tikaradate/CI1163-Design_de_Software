@@ -5,7 +5,7 @@ Parâmetros:
     Nenhum
 
 Referências Cruzadas:
-    Caso de Uso: Criar relatório de funcionário
+    Caso de Uso: Execute a folha de pagamento
 
 Pré-Condições:
     deve ser um dia de pagamento válido
