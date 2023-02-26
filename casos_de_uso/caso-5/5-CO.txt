@@ -1,0 +1,167 @@
+Operação:
+    gerenciarInformacoes()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    Um Admistrador deseja gerenciar informacoes sobre os funcionários
+
+Pós-Condições:
+    O sistema está pronto para realizar as mudanças requeridas
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    adicionarFuncionario()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    O Administrador deseja adicionar um funcionário
+
+Pós-Condições:
+    O sistema está pronto para adicionar um funcionário
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    inserirInformacoes(nome, tipoFun, endereco, deducoes, tel, taxa, salario, comissao, limiteHoras)
+
+Parâmetros:
+    nome        : nome do funcionário
+    tipoFun     : tipo de funcionário
+    endereco    : endereço do funcionário
+    deducoes    : deducoes de imposto do funcionário
+    tel         : telefone do funcionário
+    taxa        : taxa horária do funcionário
+    salario     : salário do funcionário
+    comissao    : comissão do funcionário
+    limiteHoras : limite de horas do funcionário
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    O Administrador sabe as informações do usuário que irá gerenciar
+
+Pós-Condições:
+    O funcionário teve as informações inseridas
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    atualizarFuncionario()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    O Administrador deseja atualizar um funcionário
+
+Pós-Condições:
+    O sistema está preparado para atualizar um funcionário
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    inserirIDFuncionario(ID)
+
+Parâmetros:
+    ID          : identificador do funcionário requerido
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    O Administrador sabe o ID do funcionário que deseja gerenciar
+
+Pós-Condições:
+    O sistema sabe qual funcionário o administrador deseja gerenciar
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    alterarInformacoes(nome, tipoFun, endereco, deducoes, tel, taxa, salario, comissao, limiteHoras)
+
+Parâmetros:
+    nome        : nome do funcionário
+    tipoFun     : tipo de funcionário
+    endereco    : endereço do funcionário
+    deducoes    : deducoes de imposto do funcionário
+    tel         : telefone do funcionário
+    taxa        : taxa horária do funcionário
+    salario     : salário do funcionário
+    comissao    : comissão do funcionário
+    limiteHoras : limite de horas do funcionário
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    O Administrador sabe as informações que deseja atualizar no funcionário
+
+Pós-Condições:
+    O funcionário teve as informações alteradas
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    excluirFuncionario()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    O Administrador deseja excluir um funcionário
+
+Pós-Condições:
+    O sistema está preparado para excluir um funcionário
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    cancelar()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    O administrador deseja cancelar o que está fazendo
+
+Pós-Condições:
+    A operacao é cancelada e a execução encerrada
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    confirmar()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    O sistema deseja saber se o administrador realmente deseja fazer as alterações
+    O administrador quer realmente fazer as alterações
+
+Pós-Condições:
+    A operacao é confirmada e realizada efetivamente

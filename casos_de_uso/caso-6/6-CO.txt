@@ -136,3 +136,19 @@ Pós-Condições:
     O sistema sabe qual ordem de compra irá cancelar
 
 -------------------------------------------------------------------------------------------------------------
+
+Operação:
+    confirmar()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    O sistema deseja saber se o administrador realmente deseja fazer as alterações
+    O administrador quer realmente fazer as alterações
+
+Pós-Condições:
+    A operacao é confirmada e realizada efetivamente

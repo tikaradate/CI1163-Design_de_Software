@@ -12,7 +12,7 @@ rectangle "Projeto" as projeto
 label " " as ini
 
 ini -down-> funcionario     : gerarRelatorioFuncionario()
-funcionario -> funcionario  : 1 enviaInformacoes(tipoRelatorio, dataInico, dataFim)
+funcionario -> funcionario  : 1 enviaInformacoes(tipoRelatorio, dataInico, dataFim)\n7 salvaRelatorio(relat)
 funcionario -up-> projeto      : 2 projetos = getProj()
 funcionario -left-> pagamento    : 3 pagamento = getPag()
 funcionario -down-> empresa      : 4 relat = pedeRelatorio(tipoRelatorio, dataInico, dataFim, nomeFunc, projetos, pagamento)

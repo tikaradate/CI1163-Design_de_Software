@@ -1,0 +1,17 @@
+@startuml
+'rectangle "Gerente" as gerente
+'rectangle "FolhaDePagamento" as folha
+'rectangle "Pagamento" as pagamento
+rectangle "Funcionario" as funcionario
+'rectangle "Empresa" as empresa
+'rectangle "ListaDeFuncionarios" as lista
+'rectangle "Venda" as venda
+'rectangle "Ponto" as ponto
+'rectangle "BaseDeDadosProjetos" as base
+'rectangle "Projeto" as projeto
+label " " as ini
+
+ini -down-> funcionario      : iniciarLogin()
+funcionario -> funcionario   : 1 inserirInformacoes(nome, senha)\n2 validaLogin(nome, senha)\n 3 fazLogin()
+
+@enduml
