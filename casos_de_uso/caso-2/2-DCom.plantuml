@@ -6,7 +6,7 @@ rectangle "Funcionario" as funcionario
 rectangle "Empresa" as empresa
 rectangle "ListaDeFuncionarios" as lista
 'rectangle "Venda" as venda
-'rectangle "Ponto" as ponto
+rectangle "Ponto" as ponto
 'rectangle "BaseDeDadosProjetos" as base
 'rectangle "Projeto" as projeto
 label " " as ini
@@ -14,7 +14,8 @@ label " " as ini
 ini -down-> gerente      : solicitaRelatorioAdm()
 gerente -down-> empresa      : 1 relat = criaRelatorioAdm(tipoRelat, dataIni, dataFim, nomesFunc)
 empresa -down-> lista        : 2 func = retornaFuncionario(nomeFunc)
-lista   -right-> funcionario  : 3 func = procuraFuncionario(momeFunc)\n4 pag = getPagamento(func)
+lista   -right-> funcionario  : 3 func = procuraFuncionario(momeFunc)\n4 infos = getInfos(func)
 funcionario -up-> pagamento : 5 infoPag = getInfoPag()
-empresa --> empresa      : 6 fazRelatorio(func)
+funcionario -down-> ponto : 6 infoPonto = getIndoPonto()
+empresa --> empresa      : 7 fazRelatorio(func)
 @enduml
