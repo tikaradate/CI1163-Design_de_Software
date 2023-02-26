@@ -10,7 +10,7 @@ opt Adicionar
     AFP <-- Sistema : solicita informações
     AFP -> Sistema : inserirInformacoes(nome, tipoFun, endereco, deducoes, tel, taxa, salario, comissao, limiteHoras)
     Sistema -> Sistema: gera e atribui ID para o funcionário
-    Sistema -> Sistema: define metodo de entrega como "retirada
+    Sistema -> Sistema: define metodo de entrega como "retirada"
     Sistema -> Sistema: adiciona funcionário
     AFP <-- Sistema: envia ID do funcionário
 else Atualizar
