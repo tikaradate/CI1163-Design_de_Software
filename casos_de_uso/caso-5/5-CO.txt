@@ -1,0 +1,128 @@
+Operação:
+    gerenciarInformacoes()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter informações dos funcionários
+
+Pré-Condições:
+    O AFP deve estar conectado ao sistema antes do início deste caso de uso
+
+Pós-Condições:
+    o sistema solicita a operação que deve ser executada
+
+-------------------------------------------------------------------------------------------------------------
+Operação:
+    adicionarFuncionario()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter informações dos funcionários
+
+Pré-Condições:
+    O AFP deve estar conectado ao sistema antes do início deste caso de uso
+
+Pós-Condições:
+    o sistema solicita a operação que deve ser executada
+
+-------------------------------------------------------------------------------------------------------------
+Operação:
+    inserirInformacoes(nome,tipoFun, endereco, deducoes, tel, taxa, salario, comissao, limiteHoras)
+
+Parâmetros:
+    nome       : nome do funcionario
+    tipoFun    : tipo de funcionario (hora, assalariado, comissado)
+    encontrado : endereco do funcionario
+    deducoes   : deducoes medicas e fiscais
+    tel        : telefone do funcionario
+    salario    : salario do funcionario
+    comissao   : taxa de comissão para funcionarios comissionados
+    limiteHoras: para funcionarios que não podem fazer horas extras
+
+Referências Cruzadas:
+    Caso de Uso: Manter informações dos funcionários
+
+Pré-Condições:
+    O método adicionarFuncionario() deve ter sido chamado previamente
+
+Pós-Condições:
+    o sistema cria um usuario e devolve o id dele
+
+-------------------------------------------------------------------------------------------------------------
+Operação:
+    atualizarFuncionario()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter informações dos funcionários
+
+Pré-Condições:
+    O método gerenciarInformacoes() deve ter sido chamado
+
+Pós-Condições:
+    o sistema solicida um id de funcionario
+
+-------------------------------------------------------------------------------------------------------------
+Operação:
+    inserirIDFuncionario(ID)
+
+Parâmetros:
+    ID : id do funcionario
+
+Referências Cruzadas:
+    Caso de Uso: Manter informações dos funcionários
+
+Pré-Condições:
+    O método atualizarFuncionario() deve ter sido chamado
+
+Pós-Condições:
+    o sistema retorna informações do usuario com aquele id
+    ou
+    o sistema informa que o funcionario não existe e solicita uma nova operação do usuario
+
+-------------------------------------------------------------------------------------------------------------
+Operação:
+    cancelar()
+
+Parâmetros:
+   Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter informações dos funcionários
+
+Pré-Condições:
+    O método atualizarFuncionario() deve ter sido chamado
+
+Pós-Condições:
+    O sistema retorna informações do usuario com aquele id
+
+-------------------------------------------------------------------------------------------------------------
+Operação:
+    alterarInformacoes(nome,tipoFun, endereco, deducoes, tel, taxa, salario, comissao, limiteHoras)
+
+Parâmetros:
+    nome       : nome do funcionario
+    tipoFun    : tipo de funcionario (hora, assalariado, comissado)
+    encontrado : endereco do funcionario
+    deducoes   : deducoes medicas e fiscais
+    tel        : telefone do funcionario
+    salario    : salario do funcionario
+    comissao   : taxa de comissão para funcionarios comissionados
+    limiteHoras: para funcionarios que não podem fazer horas extras
+   
+Referências Cruzadas:
+    Caso de Uso: Manter informações dos funcionários
+
+Pré-Condições:
+    O método atualizarFuncionario() deve ter sido chamado
+
+Pós-Condições:
+    O sistema retorna informações do usuario com aquele id
+
+-------------------------------------------------------------------------------------------------------------
