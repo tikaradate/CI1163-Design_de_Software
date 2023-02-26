@@ -1,0 +1,69 @@
+@startuml
+
+Participant "afp : Gerente" as AFP
+Participant "empresa : Empresa" as empresa
+Participant "listaFun : ListaDeFuncionarios" as listaFuncionarios
+Participant "func: Funcionario" as funcionario
+' Participant "pgto: Pagamento" as pagamento
+' Participant "ponto: Ponto" as ponto
+' Participant "baseProj: BaseDeDadosProjetos" as baseProjeto
+
+'não sei se precisa de loop na interação de lista de funcionários com funcionário
+
+-> AFP : gerenciarInformacoes()
+
+opt Adicionar
+    AFP -> empresa : adicionarFuncionario()
+    AFP <-- empresa : solicita informações
+    AFP -> empresa : id = inserirInformacoes(nome, tipoFun, endereco, deducoes, tel, taxa, salario, comissao, limiteHoras)
+    empresa -> empresa: gera e atribui ID para o funcionário
+    empresa -> empresa: define metodo de entrega como "retirada"
+    empresa -> listaFuncionarios : adicionaFunc(func)
+    listaFuncionarios -> funcionario: adicionaFunc(func)
+else Atualizar
+    AFP -> empresa : atualizarFuncionario()
+    AFP <-- empresa : solicita ID do funcionário
+    AFP -> empresa : funcionario= inserirIDFuncionario(ID)
+    empresa -> listaFuncionarios : funcionario= buscaFunc(ID)
+    listaFuncionarios -> funcionario: buscaFunc(ID)
+    alt Funcionário não encontrado
+        listaFuncionarios <-- funcionario: erro
+        empresa <-- listaFuncionarios : erro
+        AFP <-- empresa : mensagem de erro avisando que o funcionário não existe
+        opt
+            AFP -> empresa : inserirIDFuncionario(ID)
+        else
+            AFP -> empresa : cancelar()
+        end
+    end
+    AFP <-- empresa : funcionario
+    AFP -> AFP: altera alguma das informações de funcionario
+    AFP -> empresa : alterarInformacoes(funcionario)
+    empresa -> listaFuncionarios: alterarInformacoes(funcionario)
+    listaFuncionarios -> funcionario: alterarInformacoes(funcionario)
+else Excluir
+    AFP -> empresa : excluirFuncionario()
+    AFP <-- empresa : solicita ID do funcionário
+    AFP -> empresa : funcionario= inserirIDFuncionario(ID)
+    empresa -> listaFuncionarios : funcionario= buscaFunc(ID)
+    listaFuncionarios -> funcionario: buscaFunc(ID)
+    alt Funcionário não encontrado
+        listaFuncionarios <-- funcionario: erro
+        empresa <-- listaFuncionarios : erro
+        AFP <-- empresa : mensagem de erro avisando que o funcionário não existe
+        opt
+            AFP -> empresa : inserirIDFuncionario(ID)
+        else
+            AFP -> empresa : cancelar()
+        end
+    end
+    AFP <-- empresa : solicita confirmação da operação
+    alt Cancelar exclusão
+         AFP -> empresa : cancelar()
+    end
+    AFP -> empresa : confirmar()
+    'talvez fazer voltar até o funcionario, mas né
+    empresa -> empresa : marca a exclusão do funcionário 
+end
+
+@enduml
