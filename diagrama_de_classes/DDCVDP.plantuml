@@ -24,8 +24,8 @@ enum TipoFuncionarioEnum {
 }
 
 class Deducoes {
-    private IR
-    private INSS
+    private IR: BigDecimal
+    private INSS:BigDecimal
 }
 
 
@@ -87,15 +87,15 @@ class Venda {
     private valor : BigDecimal
 
     public criarOrdem() : void
-    public inserirInformacoesOrdem(contatoCliente:String, enderecoCobranca:String, produto:Produto, data:Date):Integer
+    public inserirInformacoesOrdem(contatoCliente:String, enderecoCobranca:String, produto:String, data:Date):Integer
     public alterarOrdem():void
     public inserirIDOrdemDeCompra(idOrdemDeCompra:Integer):void
     public cancelar():void
     public confirmar():void
-    private geraOrdem(contatoCliente:String, enderecoCobranca:String, produto:Produto, data:Date):Integer
+    private geraOrdem(contatoCliente:String, enderecoCobranca:String, produto:String, data:Date):Integer
     private adicionaOrdem(numero:Integer, funcC:FuncionarioComissionado):void
     private procura(idOrdemDeCompra:Integer):void
-    private atualizaOrdem(contatoCliente:String, enderecoCobranca:String, produto:Produto, data:Date):void
+    private atualizaOrdem(contatoCliente:String, enderecoCobranca:String, produto:String, data:Date):void
     private remove(idOrdemCompra:Integer)
 }
 
@@ -108,9 +108,9 @@ class Gerente {
 }
 
 class FolhaDePagamento {
-    public executarFolhaPagamento()
-    public calculaPagamento(pagFun): Transacao
-    public enviaTransacao(trans: Transacao)
+    public executarFolhaPagamento(): void
+    public calculaPagamento(pagFun): Integer
+    public enviaTransacao(trans: Integer):void
 }
 
 class BaseDeDadosProjetos {
