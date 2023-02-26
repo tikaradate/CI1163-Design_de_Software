@@ -44,5 +44,17 @@ alt erro
         AFP -> AFP : termina
     end
 else ok 
-    empresa -> AFP : relatorio 
+    empresa -> AFP : relatorio
+    opt
+        AFP -> empresa : salvarRelatorio()
+        AFP <-- empresa : solicita nome e local
+        AFP -> empresa : forneceInformacoes(relatorio, nome, local)
+        AFP <-- empresa : pede confirmação
+        AFP -> empresa : confirmaAcao()
+        empresa -> empresa: salva relatorio
+    else
+        AFP <-- empresa : notica descarte
+        empresa -> empresa : descarta
+        empresa -> empresa : termina
+    end
 end
