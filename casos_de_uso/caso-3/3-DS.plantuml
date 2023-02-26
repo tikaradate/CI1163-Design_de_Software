@@ -6,6 +6,7 @@ Participant "empresa : Empresa" as empresa
 ' Participant "pgto: Pagamento" as pagamento
 ' Participant "ponto: Ponto" as ponto
 Participant "baseProj: BaseDeDadosProjetos" as baseProjeto
+Participant "roj: Projeto" as projeto
 
 -> funcionario: gerarRelatorioFuncionario()
 alt tipoProjeto == horasProjeto

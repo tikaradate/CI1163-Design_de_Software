@@ -1,65 +1,48 @@
 @startuml caso8
 actor RelogioSistema as RelogioSistema
+Participant "folha: FolhaDePagamento" as fdp
+Participant "pgto: Pagamento" as pagamento
+Participant "gerente: Gerente" as gerente
+Participant "empresa : Empresa" as empresa
+Participant "listaFun : ListaDefuncionarios" as listafuncionarios
+Participant "func: funcionario" as funcionario
+Participant "ponto: Ponto" as ponto
 
-RelogioSistema  -> Sistema : executarFolhaPagamento()
 activate RelogioSistema
+RelogioSistema  -> fdp : executarFolhaPagamento()
+loop 
+    activate fdp
+    loop pag in pagamentos
+        fdp -> pagamento : pagFun.append(getPagamento())
+        activate pagamento
+    end
+    deactivate pagamento
 
+    loop
+        fdp -> gerente: horas.append(getHoras(pagFun.fun))
+        activate gerente
+        gerente -> empresa: procuraFunc(pagFun.fun)
+        activate empresa
+        empresa -> listafuncionarios: getFunc(pagFun.fun)
+        activate listafuncionarios
+        loop ponto in pagFun.fun
+            empresa -> funcionario: horas += somaHoras()
+            activate funcionario
+            funcionario -> ponto: retornaHoras()
+            activate ponto
+            deactivate ponto
+        end
+        deactivate funcionario
 
-Sistema   --> Sistema : recupera funcionarios a serem pagos
-activate Sistema
-deactivate Sistema
-
-loop todos os funcionarios foram pagos
-    Sistema   --> Sistema : recupera folhas ponto
-    activate Sistema
-    deactivate Sistema
-    Sistema   --> Sistema : recupera ordens de compra
-    activate Sistema
-    deactivate Sistema
-    Sistema   --> Sistema : recupera informações do usuario
-    activate Sistema
-    deactivate Sistema
-    Sistema   --> Sistema : realiza deduçoes legaisactivate Sistema
-    activate Sistema
-    deactivate Sistema
-    
-    alt pagamento é feito via correio
-        Sistema   --> Sistema : cria transacao bancaria
-        activate Sistema
-        deactivate Sistema
-        Sistema   --> Correios     : envia ordem de pagamento
-        activate Sistema
-        activate Correios
-        deactivate Correios
-        deactivate Sistema
-    else pagamentos é feito via deposito bancário
-        Sistema   --> Sistema : cria transacao bancaria
-        activate Sistema
-        deactivate Sistema
-        Sistema   --> SistemaBanco : envia ordem de pagamento
-        activate Sistema
-        activate SistemaBanco
-        deactivate SistemaBanco
-        deactivate Sistema
-        alt sistema bancario indisponivel
-            loop sistema bancario indisponivel
-                Sistema   --> Sistema      : aguarda determinado periodo
-                activate Sistema
-                deactivate Sistema
-                Sistema   --> SistemaBanco : tenta enviar a ordem de pagamento novamente
-                activate Sistema
-                activate SistemaBanco
-                deactivate SistemaBanco
-                deactivate Sistema
-            end
+        deactivate listafuncionarios
+        deactivate empresa
+        deactivate gerente
     end
 
-    opt id do funcionario foi marcado como excluido
-        Sistema   --> Sistema : excluir funcionario
-        activate Sistema
-        deactivate Sistema
+    loop pag in pagFun
+        fdp -> fdp : trans = calculaPagamento(pagFun)
+        fdp -> fdp: enviaTransacao(trans)
     end
+
 end
-
-
 @enduml
