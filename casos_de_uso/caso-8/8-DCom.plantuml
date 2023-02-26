@@ -9,7 +9,7 @@ rectangle "ListaDeFuncionarios" as lista
 rectangle "Ponto" as ponto
 'rectangle "BaseDeDadosProjetos" as base
 'rectangle "Projeto" as projeto
-label "Relogio" as ini
+rectangle "Relogio" as ini
 
 ini     -down-> folha       : executarFolhaPagamento()
 folha   -> folha            : 1 funcPag = getFuncPag()\n8 paga(infos)

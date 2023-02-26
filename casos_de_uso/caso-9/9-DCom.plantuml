@@ -1,0 +1,17 @@
+@startuml
+'rectangle "Gerente" as gerente
+'rectangle "FolhaDePagamento" as folha
+'rectangle "Pagamento" as pagamento
+rectangle "Funcionario" as funcionario
+'rectangle "Empresa" as empresa
+'rectangle "ListaDeFuncionarios" as lista
+'rectangle "Venda" as venda
+'rectangle "Ponto" as ponto
+'rectangle "BaseDeDadosProjetos" as base
+'rectangle "Projeto" as projeto
+label " " as ini
+
+ini     -down-> funcionario     : selecionarPagamento()
+funcionario -> funcionario      : 1 escolherMetodo()\n2 [correios] enviarEndereco(endereco)\n3 [direto] enviarInformacoesBanco(nome, numer) 
+
+@enduml
