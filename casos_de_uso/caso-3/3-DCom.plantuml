@@ -1,16 +1,21 @@
 @startuml
 'rectangle "Gerente" as gerente
 'rectangle "FolhaDePagamento" as folha
-'rectangle "Pagamento" as pagamento
+rectangle "Pagamento" as pagamento
 rectangle "Funcionario" as funcionario
-'rectangle "Empresa" as empresa
+rectangle "Empresa" as empresa
 'rectangle "ListaDeFuncionarios" as lista
 'rectangle "Venda" as venda
 'rectangle "Ponto" as ponto
-'rectangle "BaseDeDadosProjetos" as base
-'rectangle "Projeto" as projeto
+rectangle "BaseDeDadosProjetos" as base
+rectangle "Projeto" as projeto
 label " " as ini
 
 ini -down-> funcionario     : gerarRelatorioFuncionario()
-funcionario -> funcionario  : enviaInformacoes(tipoRelatorio, dataInico, dataFim)
+funcionario -> funcionario  : 1 enviaInformacoes(tipoRelatorio, dataInico, dataFim)
+funcionario -> projeto      : 2 projetos = getProj()
+funcionario -> pagamento    : 2 pagamento = getPag()
+funcionario -> empresa      : 2 relat = pedeRelatorio(tipoRelatorio, dataInico, dataFim, nomeFunc, projetos, pagamento)
+empresa -> base             : 3 infos = getInfos(dataInico, dataFim, nomeFunc, projetos)
+
 @enduml
