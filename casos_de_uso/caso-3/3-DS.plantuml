@@ -1,0 +1,32 @@
+@startuml Caso3
+
+Participant "func: Funcionario" as funcionario
+Participant "empresa : Empresa" as empresa
+' Participant "listaFun : ListaDeFuncionarios" as listaFuncionarios
+' Participant "pgto: Pagamento" as pagamento
+' Participant "ponto: Ponto" as ponto
+Participant "baseProj: BaseDeDadosProjetos" as baseProjeto
+
+-> funcionario: gerarRelatorioFuncionario()
+alt tipoProjeto == horasProjeto
+funcionario -> empresa: getNumerosCobranca()
+    loop proj in BaseProj
+        empresa -> baseProjeto: getNumeroCobranca()
+        baseProjeto -> projeto: numeroAtual = getNumeroCobranca()
+        empresa -> empresa: numerosCobranca.append(numeroAtual)
+    end
+    empresa --> funcionario: pede número de cobrança
+    funcionario -> empresa: relatorio = forneceNumeroCobranca(numeroCobranca)
+    empresa --> funcionario: pergunta se quer salvar
+    opt
+        funcionario -> empresa: salvarRelatorio()
+        empresa --> funcionario: solicita nome e local do arquivo
+        funcionario -> empresa: forneceInformacoes(nome, local)
+        empresa --> funcionario: pede confirmação
+        funcionario -> empresa: confirmaSalvar()
+    else
+        empresa -> empresa: descarta relatório
+        empresa --> funcionario: informa o descarte
+    end
+end
+@enduml

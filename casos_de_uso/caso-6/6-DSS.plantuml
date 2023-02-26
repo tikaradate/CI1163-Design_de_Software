@@ -8,7 +8,7 @@ FC <-- Sistema : solicita operação
 alt Criar ordem
     FC -> Sistema : criarOrdem()
     FC <-- Sistema : solicita informações da ordem de compra
-    FC -> Sistema : inserirInformacoesOrdem(contatoCliente, endCobranca, produtod, data)
+    FC -> Sistema : inserirInformacoesOrdem(contatoCliente, endCobranca, produto, data)
     Sistema -> Sistema : gera e atribui número da ordem de compra
     Sistema -> Sistema : adiciona ordem de compra ao FC
     FC <- Sistema : devolve número da ordem de compra
@@ -39,7 +39,7 @@ else Alterar ordem
         end
     end
     FC <-- Sistema : exibe a ordem de compra 
-    FC -> Sistema : inserirInformacoesOrdem(contatoCliente, endCobranca, produtod, data)
+    FC -> Sistema : inserirInformacoesOrdem(contatoCliente, endCobranca, produto, data)
     Sistema -> Sistema : atualiza informações da compra
 else Cancelar ordem
     FC -> Sistema : cancelarOrdem()
@@ -72,7 +72,7 @@ else Cancelar ordem
     alt Cancelar exlusão
         FC -> Sistema : cancelar()
     end
-    FC -> Sistema : confirma exclusão
+    FC -> Sistema : confirmar()
     Sistema -> Sistema : remove a ordem do sistema
 end
 

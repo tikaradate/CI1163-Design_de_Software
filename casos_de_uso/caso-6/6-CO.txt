@@ -1,0 +1,154 @@
+Operação:
+    gerenciarOrdens()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Ordem de Compra
+
+Pré-Condições:
+    O usuário deseja realizar alguma ação com as ordens
+
+Pós-Condições:
+    O sistema está disposta a realizar alguma ação com as origens, mas precisa saber qual
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    criarOrdem()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Ordem de Compra
+
+Pré-Condições:
+    O usuário deseja criar uma ordem
+
+Pós-Condições:
+    O sistema criou uma ordem com as informações entregues pelo usuário
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    inserirInformacoesOrdem(contatoCliente, endCobranca, produtod, data)
+
+Parâmetros:
+    contatoCliente      : ponto de contato do cliente
+    endCobranca         : endereço da cobrança
+    produtod            : descritor dos produtos
+    data                : data da ordem
+
+Referências Cruzadas:
+    Caso de Uso: Manter Ordem de Compra
+
+Pré-Condições:
+    O usuário sabe as informações necessárias para criar a ordem
+
+Pós-Condições:
+    O sistema cria uma ordem de compra e altera boa parte das informações dela
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    alterarOrdem()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Ordem de Compra
+
+Pré-Condições:
+    O usuário deseja alterar as informações de alguma ordem de compra
+
+Pós-Condições:
+    O sistema está preparada para alterar dados de alguma ordem de compra
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    inserirIDOrdemDeCompra(IDOrdemDeCompra)
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Ordem de Compra
+
+Pré-Condições:
+    O usuário sabe o ID da ordem de compra que deseja gerenciar
+
+Pós-Condições:
+    O sistema sabe qual ordem de compra o usuário deseja gerenciar
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    cancelar()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Ordem de Compra
+
+Pré-Condições:
+    O usuário deseja cancelar o que quer que esteja fazendo
+
+Pós-Condições:
+    O sistema encerra a execução
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    cancelarOrdem()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Ordem de Compra
+
+Pré-Condições:
+    O usuário deseja cancelar uma ordem de compra
+
+Pós-Condições:
+    O sistema está preparado para receber informações sobre uma ordem de compra que deverá cancelar
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    inserirIDOrdemDeCompra(IDOrdemDeCompra)
+
+Parâmetros:
+    IDOrdemDeCompra     : ID da ordem de compra que deverá ser cancelada
+
+Referências Cruzadas:
+    Caso de Uso: Manter Ordem de Compra
+
+Pré-Condições:
+    O usuário deseja cancelar uma ordem de compra que sabe o ID
+
+Pós-Condições:
+    O sistema sabe qual ordem de compra irá cancelar
+
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    confirmar()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Manter Informações dos Funcionários
+
+Pré-Condições:
+    O sistema deseja saber se o administrador realmente deseja fazer as alterações
+    O administrador quer realmente fazer as alterações
+
+Pós-Condições:
+    A operacao é confirmada e realizada efetivamente

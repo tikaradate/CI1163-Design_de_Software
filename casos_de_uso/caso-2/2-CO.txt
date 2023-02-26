@@ -173,3 +173,20 @@ Pré-Condições:
 Pós-Condições:
     O sistema termina sua execução
 
+-------------------------------------------------------------------------------------------------------------
+
+Operação:
+    completaInfoRelat()
+
+Parâmetros:
+    Nenhum
+
+Referências Cruzadas:
+    Caso de Uso: Criar Relatório Administrativo
+
+Pré-Condições:
+    O usuário entregou informações imcompletas anteriormente
+
+Pós-Condições:
+    O sistema agora possui todas as informações necessárias para criar um relatório
+

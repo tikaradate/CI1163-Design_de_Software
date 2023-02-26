@@ -62,12 +62,13 @@ else Serviço Indisponível
 end
 |||
 |||
-Funcionario -> Sistema : solicitaEnvioPonto()
+Funcionario -> Sistema : enviaPonto()
 Sistema <- Sistema : altera a data de envio do cartão de ponto para a atual e o status para "enviado"
 Sistema <- Sistema : valida o cartão de ponto
 Sistema <- Sistema : armazena as horas trabalhadas em cada número de cobrança
 Sistema <- Sistema : salva o cartão
 Sistema <- Sistema : torna o cartão um "somente leitura", não permitindo alterações nele de agora em diante
+Funcionario <-- Sistema : exibe mensagem de sucesso
 Sistema <- Sistema : termina a execução
 
 @enduml

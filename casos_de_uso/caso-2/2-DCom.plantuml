@@ -1,0 +1,21 @@
+@startuml
+rectangle "Gerente" as gerente
+'rectangle "FolhaDePagamento" as folha
+rectangle "Pagamento" as pagamento
+rectangle "Funcionario" as funcionario
+rectangle "Empresa" as empresa
+rectangle "ListaDeFuncionarios" as lista
+'rectangle "Venda" as venda
+rectangle "Ponto" as ponto
+'rectangle "BaseDeDadosProjetos" as base
+'rectangle "Projeto" as projeto
+label " " as ini
+
+ini -down-> gerente      : solicitaRelatorioAdm()
+gerente -down-> empresa      : 1 relat = criaRelatorioAdm(tipoRelat, dataIni, dataFim, nomesFunc)
+empresa -down-> lista        : 2 funcInfos = retornaFuncionario(nomeFunc)
+lista   -right-> funcionario  : 3 infos = getInfos(func)
+funcionario -up-> pagamento : 4 infoPag = getInfoPag()
+funcionario -down-> ponto : 5 infoPonto = getIndoPonto()
+empresa --> empresa      : 6 fazRelatorio(funcInfos)
+@enduml
