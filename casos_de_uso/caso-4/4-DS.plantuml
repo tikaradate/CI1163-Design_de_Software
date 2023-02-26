@@ -1,0 +1,22 @@
+@startuml
+
+actor usuário
+Participant "func: Funcionario" as funcionario
+
+usuário -> funcionario: iniciarLogin()
+funcionario --> usuário : solicita nome e senha
+usuário -> funcionario : inserirInformacoes(nome, senha)
+alt Usuário ou senha inválido
+    funcionario --> usuário: manda mensagem de erro
+    opt
+        usuário -> funcionario : iniciarLogin()
+    else
+        usuário -> funcionario : cancelarLogin()
+    end
+end 
+
+funcionario -> funcionario : registra usuário
+usuário <-- funcionario : informa usuário
+
+
+@enduml
