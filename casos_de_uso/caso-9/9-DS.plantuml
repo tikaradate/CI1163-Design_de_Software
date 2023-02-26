@@ -1,0 +1,25 @@
+@startuml caso9-ds
+
+actor usuario
+Participant "func: Funcionario" as funcionario
+
+-> usuario : selecionarPagamento()
+activate usuario
+usuario -> funcionario: escolheMetodo()
+activate funcionario
+funcionario --> usuario: solicita nome e senha
+usuario -> funcionario : inserirInformacoes(nome, senha)
+alt correios
+    funcionario --> usuario    : solicita endereco
+    usuario  -> funcionario    : infos = enviarEndereco(endereco)
+else direto
+    funcionario --> usuario    : solicita nome, numero
+    usuario -> funcionario     : infos = enviarInformacoesBanco(nome, numero)
+end 
+
+usuario -> funcionario : atualizar(infos)
+usuario <-- funcionario : informa usuario qua a atualizaçao foi realizada
+deactivate funcionario
+
+
+@enduml
