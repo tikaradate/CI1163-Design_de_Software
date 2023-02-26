@@ -72,7 +72,7 @@ else Cancelar ordem
     alt Cancelar exlusão
         FC -> Sistema : cancelar()
     end
-    FC -> Sistema : confirma exclusão
+    FC -> Sistema : confirmar()
     Sistema -> Sistema : remove a ordem do sistema
 end
 

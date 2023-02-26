@@ -1,0 +1,20 @@
+@startuml
+'rectangle "Gerente" as gerente
+'rectangle "FolhaDePagamento" as folha
+'rectangle "Pagamento" as pagamento
+rectangle "Funcionario" as funcionario
+rectangle "Empresa" as empresa
+'rectangle "ListaDeFuncionarios" as lista
+'rectangle "Venda" as venda
+rectangle "Ponto" as ponto
+rectangle "BaseDeDadosProjetos" as base
+'rectangle "Projeto" as projeto
+label " " as ini
+
+ini     -down-> funcionario : solicitaInsercaoHoras()
+funcionario -left-> ponto        : 1 pontoAtual = procuraPontoAtual()
+funcionario -down-> empresa      : 2 listaNumCob = getListNumCobranca()
+empresa -left-> base             : 3 lista = retornaLista()
+funcionario -> funcionario  : 4 insereHoras()\n5 apertaOk()\n6 enviaPonto()
+
+@enduml
