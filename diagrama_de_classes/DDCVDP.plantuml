@@ -1,0 +1,38 @@
+@startuml DDCVDP
+
+class Funcionario{
+    private nome : String
+    private tipoPagamento : TipoPagamentoEnum
+}
+
+class Pagamento {
+    private dia : Date
+    private valor : BigDecimal
+} 
+
+class Empresa{
+
+}
+
+class Venda {
+    private valor : BigDEcimal
+}
+
+class Gerente {
+
+}
+
+class FolhaDePagamento {
+
+}
+
+class BaseDeDadosProjetos {
+
+}
+
+class Projeto {
+    private nome : String
+}
+
+
+@enduml
