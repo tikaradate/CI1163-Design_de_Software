@@ -12,6 +12,6 @@ rectangle "Funcionario" as funcionario
 label " " as ini
 
 ini     -down-> funcionario     : selecionarPagamento()
-funcionario -> funcionario      : 1 escolherMetodo()\n2 [correios] enviarEndereco(endereco)\n3 [direto] enviarInformacoesBanco(nome, numer) 
+funcionario -> funcionario      : 1 escolherMetodo()\n2 [correios] infos = enviarEndereco(endereco)\n3 [direto] infos = enviarInformacoesBanco(nome, numer)\n4 atualizaInfos(infos)
 
 @enduml
