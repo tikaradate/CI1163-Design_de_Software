@@ -7,7 +7,7 @@ class BaseDeDadosProjetos {
     private String numeroAtual;
 
     public String getNumeroCobranca(Projeto projeto) {
-        // implementation goes here
+
         return null;
     }
 }
