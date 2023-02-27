@@ -6,27 +6,32 @@ import lombok.Data;
 
 @Data
 public class ListaDeFuncionarios {
-    private List<Funcionario> funcionarios;
+	
+    private static List<Funcionario> funcionarios;
 
     public Info retornaFuncionarioInfos(Funcionario func) {
-        // Implementação aqui
+        for (Funcionario funcionario : funcionarios) {
+			if (func.getNome().equals(funcionario.getNome())) {
+				return funcionario.getInfos();
+			}
+		}
+        System.out.println("Funcionario nao encontrado");
         return null;
     }
 
     public void adicionaFunc(Funcionario func) {
-        // Implementação aqui
+        funcionarios.add(func);
     }
 
     public Funcionario buscaFunc(Integer ID) {
-        // Implementação aqui
-        return null;
+      return funcionarios.get(ID);
     }
 
     public void alterarInformacoes(Funcionario func) {
-        // Implementação aqui
+    	funcionarios.add(func);
     }
 
     public void excluiFuncionario(Funcionario func) {
-        // Implementação aqui
+    	funcionarios.remove(func);
     }
 }

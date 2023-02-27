@@ -33,24 +33,19 @@ public class Venda {
     }
 
     private Integer geraOrdem(String contatoCliente, String enderecoCobranca, String produto, Date data) {
-        // implementação
         return null;
     }
 
     private void adicionaOrdem(Integer numero, FuncionarioComissionado funcC) {
-        // implementação
     }
 
     private void procura(Integer idOrdemDeCompra) {
-        // implementação
     }
 
     private void atualizaOrdem(String contatoCliente, String enderecoCobranca, String produto, Date data) {
-        // implementação
     }
 
     private void remove(Integer idOrdemCompra) {
-        // implementação
     }
 
 }

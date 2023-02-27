@@ -3,6 +3,10 @@ package br.ufpr.tabajaras.domain;
 public class Info {
     private Pagamento pagamentoInfo;
     private Ponto pontoInfo;
+    
+    public Info() {
+
+    }
 
     public Info(Pagamento pagamentoInfo, Ponto pontoInfo) {
         this.pagamentoInfo = pagamentoInfo;

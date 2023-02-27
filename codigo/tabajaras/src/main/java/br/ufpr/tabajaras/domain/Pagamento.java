@@ -10,9 +10,11 @@ public class Pagamento {
     private Date dia;
     private BigDecimal valor;
 
-    public String getInfoPag(Funcionario func) {
-        // implementation
-        return null;
+    public Pagamento getInfoPag(Funcionario func) {
+    	Pagamento p = new Pagamento();
+    	p.setDia(new Date());
+    	p.setValor(new BigDecimal("1000"));
+    	return p;
     }
 
     // getter and setter methods

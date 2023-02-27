@@ -12,11 +12,16 @@ public class Ponto {
     private Date fim;
 
     public Ponto getInfoPonto(Funcionario func) {
-        // Retorna as informações de ponto do funcionário
-        return null;
+    	Ponto p = new Ponto();
+    	p.setInicio(new Date());
+    	p.setFim(new Date());
+        
+        return p;
     }
 
     private void criaPonto(Funcionario func, Date dataIni, Date dataFim) {
-        // Cria um novo registro de ponto para o funcionário com as datas fornecidas
+    	Ponto p = new Ponto();
+    	p.setInicio(dataIni);
+    	p.setFim(dataFim);
     }
 }
