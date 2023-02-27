@@ -138,21 +138,22 @@ class Ponto{
 
 ' ---------------------- RELACOES ----------------------
 ListaDeFuncionarios -> Funcionario
-Empresa -down-> Funcionario
-Empresa -> Gerente
-Empresa -right-> ListaDeFuncionarios 
-Gerente -> FolhaDePagamento
-Funcionario -> Pagamento
-Funcionario -down-> Ponto
-Funcionario -left-> Venda
-Ponto -left-> Projeto
-Empresa -down-> BaseDeDadosProjetos
-BaseDeDadosProjetos -down-> Projeto
-FolhaDePagamento -down-> Pagamento
+Empresa "1" -down-> "1..*"Funcionario
+Empresa "1"->"1..*" Gerente
+Empresa "1"-right->"1" ListaDeFuncionarios 
+Gerente "1"->"1" FolhaDePagamento
+Funcionario "1..*"->"1" Pagamento
+Funcionario "1"-down->"1..*" Ponto
+Funcionario "1"-left->"0..*" Venda
+Funcionario "1..*"->"0..*" Projeto
+Ponto "0..*"-left->"1..*" Projeto
+Empresa "1"-down->"1" BaseDeDadosProjetos
+BaseDeDadosProjetos "1"-down->"1..*" Projeto
+FolhaDePagamento "1"-down->"0..*" Pagamento
 TipoPagamentoEnum - Pagamento
 TipoFuncionarioEnum - Funcionario
 ListaDeFuncionarios - Info
-Deducoes - Empresa
+Deducoes "0..*"-"1" Empresa
 
 Info -[dashed]-> Pagamento: <<atributo>>
 Info -[dashed]-> Ponto: <<atributo>>
